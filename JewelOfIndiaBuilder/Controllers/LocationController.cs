@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using JewelOfIndiaBuilder.Models;
+using EntityState = System.Data.Entity.EntityState;
 
 namespace JewelOfIndiaBuilder.Controllers
 {
