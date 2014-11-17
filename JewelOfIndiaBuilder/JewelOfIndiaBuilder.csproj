@@ -48,6 +48,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -138,6 +139,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ApartmentAdminController.cs" />
     <Compile Include="Controllers\ApartmentController.cs" />
     <Compile Include="Controllers\ApartmentSaleController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -145,15 +147,19 @@
     <Compile Include="Controllers\FeatureTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\PropertyAdminController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\PropertyTypeController.cs" />
+    <Compile Include="Controllers\TowerAdminController.cs" />
     <Compile Include="Controllers\TowerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VisualAdminController.cs" />
     <Compile Include="Controllers\VisualController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Apartment.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -264,6 +270,26 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\PropertyAdmin\Create.cshtml" />
+    <Content Include="Views\PropertyAdmin\Delete.cshtml" />
+    <Content Include="Views\PropertyAdmin\Details.cshtml" />
+    <Content Include="Views\PropertyAdmin\Edit.cshtml" />
+    <Content Include="Views\PropertyAdmin\Index.cshtml" />
+    <Content Include="Views\TowerAdmin\Create.cshtml" />
+    <Content Include="Views\TowerAdmin\Delete.cshtml" />
+    <Content Include="Views\TowerAdmin\Details.cshtml" />
+    <Content Include="Views\TowerAdmin\Edit.cshtml" />
+    <Content Include="Views\TowerAdmin\Index.cshtml" />
+    <Content Include="Views\ApartmentAdmin\Create.cshtml" />
+    <Content Include="Views\ApartmentAdmin\Delete.cshtml" />
+    <Content Include="Views\ApartmentAdmin\Details.cshtml" />
+    <Content Include="Views\ApartmentAdmin\Edit.cshtml" />
+    <Content Include="Views\ApartmentAdmin\Index.cshtml" />
+    <Content Include="Views\VisualAdmin\Create.cshtml" />
+    <Content Include="Views\VisualAdmin\Delete.cshtml" />
+    <Content Include="Views\VisualAdmin\Details.cshtml" />
+    <Content Include="Views\VisualAdmin\Edit.cshtml" />
+    <Content Include="Views\VisualAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
