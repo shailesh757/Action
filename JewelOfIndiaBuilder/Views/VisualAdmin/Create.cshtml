@@ -1,0 +1,60 @@
+﻿@model JewelOfIndiaBuilder.Models.Visual
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "VisualAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+
+    <label for="file">Upload Image 1:</label> <input type="file" name="[0].files" id="files_0" style="width: 50%;" />
+    <label for="file">Upload Image 2:</label> <input type="file" name="[1].files" id="files_1" style="width: 100%;" />
+    <label for="file">Upload Image 3:</label> <input type="file" name="[2].files" id="files_2" style="width: 100%;" />
+    <label for="file">Upload Image 4:</label> <input type="file" name="[3].files" id="files_3" style="width: 100%;" />
+    <label for="file">Upload Image 5:</label> <input type="file" name="[4].files" id="files_4" style="width: 100%;" />
+    <label for="file">Upload Image 6:</label> <input type="file" name="[5].files" id="files_5" style="width: 100%;" />
+    <label for="file">Upload Image 7:</label> <input type="file" name="[6].files" id="files_6" style="width: 100%;" />
+    <label for="file">Upload Image 8:</label> <input type="file" name="[7].files" id="files_7" style="width: 100%;" />
+    <label for="file">Upload Image 9:</label> <input type="file" name="[8].files" id="files_8" style="width: 100%;" />
+    <label for="file">Upload Image 10:</label> <input type="file" name="[9].files" id="files_9" style="width: 100%;" />
+    <input type="submit" value="Upload" class="submit" />
+
+    
+        @Html.ValidationSummary(true)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id)
+                @Html.ValidationMessageFor(model => model.Id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImageName)
+                @Html.ValidationMessageFor(model => model.ImageName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
