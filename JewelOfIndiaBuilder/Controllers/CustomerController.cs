@@ -48,7 +48,7 @@ namespace JewelOfIndiaBuilder.Controllers
                 return BadRequest();
             }
 
-            db.Entry(customer).State = EntityState.Modified;
+            db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
 
             try
             {
