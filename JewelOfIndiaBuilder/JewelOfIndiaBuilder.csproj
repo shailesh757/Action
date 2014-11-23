@@ -159,6 +159,7 @@
     <Compile Include="Controllers\PropertyTypeController.cs" />
     <Compile Include="Controllers\TowerAdminController.cs" />
     <Compile Include="Controllers\TowerController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VisualAdminController.cs" />
@@ -203,9 +204,6 @@
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PropertyType.cs">
-      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tower.cs">
@@ -324,6 +322,11 @@
     <Content Include="Views\PropertyTypeAdmin\Details.cshtml" />
     <Content Include="Views\PropertyTypeAdmin\Edit.cshtml" />
     <Content Include="Views\PropertyTypeAdmin\Index.cshtml" />
+    <Content Include="Views\UserAdmin\Create.cshtml" />
+    <Content Include="Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Views\UserAdmin\Details.cshtml" />
+    <Content Include="Views\UserAdmin\Edit.cshtml" />
+    <Content Include="Views\UserAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
