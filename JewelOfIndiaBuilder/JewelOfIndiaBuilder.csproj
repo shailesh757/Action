@@ -144,13 +144,18 @@
     <Compile Include="Controllers\ApartmentAdminController.cs" />
     <Compile Include="Controllers\ApartmentController.cs" />
     <Compile Include="Controllers\ApartmentSaleController.cs" />
+    <Compile Include="Controllers\CustomerAdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\FeatureAdminController.cs" />
     <Compile Include="Controllers\FeatureController.cs" />
+    <Compile Include="Controllers\FeatureTypeAdminController.cs" />
     <Compile Include="Controllers\FeatureTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationAdminController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\PropertyAdminController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\PropertyTypeAdminController.cs" />
     <Compile Include="Controllers\PropertyTypeController.cs" />
     <Compile Include="Controllers\TowerAdminController.cs" />
     <Compile Include="Controllers\TowerController.cs" />
@@ -198,6 +203,9 @@
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PropertyType.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tower.cs">
@@ -291,6 +299,31 @@
     <Content Include="Views\VisualAdmin\Details.cshtml" />
     <Content Include="Views\VisualAdmin\Edit.cshtml" />
     <Content Include="Views\VisualAdmin\Index.cshtml" />
+    <Content Include="Views\CustomerAdmin\Create.cshtml" />
+    <Content Include="Views\CustomerAdmin\Delete.cshtml" />
+    <Content Include="Views\CustomerAdmin\Details.cshtml" />
+    <Content Include="Views\CustomerAdmin\Edit.cshtml" />
+    <Content Include="Views\CustomerAdmin\Index.cshtml" />
+    <Content Include="Views\LocationAdmin\Create.cshtml" />
+    <Content Include="Views\LocationAdmin\Delete.cshtml" />
+    <Content Include="Views\LocationAdmin\Details.cshtml" />
+    <Content Include="Views\LocationAdmin\Edit.cshtml" />
+    <Content Include="Views\LocationAdmin\Index.cshtml" />
+    <Content Include="Views\FeatureAdmin\Create.cshtml" />
+    <Content Include="Views\FeatureAdmin\Delete.cshtml" />
+    <Content Include="Views\FeatureAdmin\Details.cshtml" />
+    <Content Include="Views\FeatureAdmin\Edit.cshtml" />
+    <Content Include="Views\FeatureAdmin\Index.cshtml" />
+    <Content Include="Views\FeatureTypeAdmin\Create.cshtml" />
+    <Content Include="Views\FeatureTypeAdmin\Delete.cshtml" />
+    <Content Include="Views\FeatureTypeAdmin\Details.cshtml" />
+    <Content Include="Views\FeatureTypeAdmin\Edit.cshtml" />
+    <Content Include="Views\FeatureTypeAdmin\Index.cshtml" />
+    <Content Include="Views\PropertyTypeAdmin\Create.cshtml" />
+    <Content Include="Views\PropertyTypeAdmin\Delete.cshtml" />
+    <Content Include="Views\PropertyTypeAdmin\Details.cshtml" />
+    <Content Include="Views\PropertyTypeAdmin\Edit.cshtml" />
+    <Content Include="Views\PropertyTypeAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
