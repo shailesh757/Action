@@ -8,12 +8,22 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(
+    linkText: "Create New",
+    actionName: "Create",
+    controllerName: "VisualAdmin",
+    routeValues: new {
+        Type = ViewBag.Type, 
+        Id = ViewBag.Id
+    },
+    htmlAttributes: null
+)
+    
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ImageName)
+            @Html.DisplayNameFor(model => model.DisplayName)
         </th>
         <th></th>
     </tr>
@@ -21,10 +31,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ImageName)
+            <img width="100px" height="100px" src  ="..\..\images\@Html.DisplayFor(modelItem => item.DisplayName)"/>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>

@@ -19,10 +19,10 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ImageName, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DisplayName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImageName)
-                @Html.ValidationMessageFor(model => model.ImageName)
+                @Html.EditorFor(model => model.DisplayName)
+                @Html.ValidationMessageFor(model => model.DisplayName)
             </div>
         </div>
 

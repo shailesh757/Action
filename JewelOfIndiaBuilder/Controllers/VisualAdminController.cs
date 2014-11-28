@@ -15,8 +15,24 @@ namespace JewelOfIndiaBuilder.Controllers
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
         // GET: /VisualAdmin/
-        public ActionResult Index()
+        public ActionResult Index(string Type, string Id)
         {
+            ViewData.Add("Type", Type);
+            ViewData.Add("Id", Id);
+            Int32 TypeId = Convert.ToInt32(Id);
+
+            if (Type == "Property")
+            {
+                return View(db.Visuals.Where(v => v.Type.Equals("P") && v.TypeId.Equals(TypeId)).ToList());
+            }
+            if (Type == "Tower")
+            {
+                return View(db.Visuals.Where(v => v.Type.Equals("T") && v.TypeId.Equals(TypeId)).ToList());
+            }
+            if (Type == "Apartment")
+            {
+                return View(db.Visuals.Where(v => v.Type.Equals("A") && v.TypeId.Equals(TypeId)).ToList());
+            }
             return View(db.Visuals.ToList());
         }
 
@@ -36,8 +52,10 @@ namespace JewelOfIndiaBuilder.Controllers
         }
 
         // GET: /VisualAdmin/Create
-        public ActionResult Create()
+        public ActionResult Create(string Type, string Id)
         {
+            ViewData.Add("Type", Type);
+            ViewData.Add("Id", Id);
             return View();
         }
 
@@ -48,16 +66,43 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IEnumerable<HttpPostedFileBase> files)
         {
+            string type = "";
+            string id = "";
+            string typevalue = "";
+            type = Request.Form["Type"];
+            id = Request.Form["Id"];
+            if (type == "Property")
+            {
+                typevalue = "P";
+            }
+            if (type == "Tower")
+            {
+                typevalue = "T";
+            }
+            if (type == "Apartment")
+            {
+                typevalue = "A";
+            }
             if (ModelState.IsValid)
             {
                 for(int i=0;i<Request.Files.Count;i++)
                 {
-                    string path = @"D:\CTS\";
+                    string path = @"..\..\Images\";
 
                     HttpPostedFileBase photo = Request.Files[i];
 
                     if (photo.ContentLength != 0)
-                        photo.SaveAs(path + photo.FileName);
+                    {
+                        photo.SaveAs(Server.MapPath(path) + photo.FileName);
+                        Visual v = new Visual();
+                        v.DisplayName = photo.FileName;
+                        v.Name = Guid.NewGuid().ToString() + photo.FileName.Substring(photo.FileName.IndexOf('.'),4);
+                        v.Type = typevalue;
+                        v.TypeId = Convert.ToInt32(id);
+                        db.Visuals.Add(v);
+                        db.SaveChanges();
+                    }
+
 
                 }
                 return RedirectToAction("Index");
