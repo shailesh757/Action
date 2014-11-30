@@ -12,6 +12,9 @@ namespace JewelOfIndiaBuilder.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class JewelOfIndiaEntities : DbContext
     {
@@ -36,5 +39,7 @@ namespace JewelOfIndiaBuilder.Models
         public DbSet<Tower> Towers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Visual> Visuals { get; set; }
+    
+       
     }
 }

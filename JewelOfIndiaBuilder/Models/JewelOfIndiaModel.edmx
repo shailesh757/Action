@@ -383,6 +383,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -443,6 +444,7 @@
             <End Role="Towers" EntitySet="Towers" />
           </AssociationSet>
           <EntitySet Name="Visuals" EntityType="JewelOfIndiaModel.Visual" />
+          <FunctionImport Name="sp_GetProperties" EntitySet="Properties" ReturnType="Collection(JewelOfIndiaModel.Property)" />
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -688,6 +690,13 @@
           <Property Type="String" Name="Type" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Type="Int64" Name="TypeId" Nullable="false" />
         </EntityType>
+        <ComplexType Name="sp_GetProperties_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Feature" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="156" />
+          <Property Type="String" Name="CodeReference" Nullable="true" MaxLength="10" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -843,6 +852,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetProperties" FunctionName="JewelOfIndiaModel.Store.sp_GetProperties" >
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

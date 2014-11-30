@@ -18,9 +18,12 @@ namespace JewelOfIndiaBuilder.Controllers
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
         // GET api/Property
-        public IQueryable<Property> GetProperties()
+
+        public List<sp_GetProperties_Result> GetProperties()
         {
-            return db.Properties;
+            var props = db.Database.SqlQuery<sp_GetProperties_Result>("exec sp_GetProperties").ToList<sp_GetProperties_Result>();
+
+            return props;
         }
 
         // GET api/Property/5
