@@ -18,22 +18,20 @@ namespace JewelOfIndiaBuilder.Controllers
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
         // GET api/Tower
-        public IQueryable<Tower> GetTowers()
-        {
-            return db.Towers;
-        }
+        //public List<sp_GetTower_Result> GetTowers()
+        //{
+        //    var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec sp_GetTower @PropertyId").ToList<sp_GetTower_Result>();
+
+        //    return towers;
+        //}
 
         // GET api/Tower/5
-        [ResponseType(typeof(Tower))]
-        public IHttpActionResult GetTower(long id)
+        
+        public List<sp_GetTower_Result> GetTower(long id)
         {
-            Tower tower = db.Towers.Find(id);
-            if (tower == null)
-            {
-                return NotFound();
-            }
+            var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec dbo.sp_GetTower {0}", id).ToList<sp_GetTower_Result>();
 
-            return Ok(tower);
+            return towers;
         }
 
         // PUT api/Tower/5

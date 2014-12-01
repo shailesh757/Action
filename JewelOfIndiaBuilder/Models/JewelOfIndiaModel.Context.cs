@@ -40,6 +40,6 @@ namespace JewelOfIndiaBuilder.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Visual> Visuals { get; set; }
     
-       
+        
     }
 }

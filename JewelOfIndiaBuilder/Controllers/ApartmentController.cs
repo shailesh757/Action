@@ -24,18 +24,12 @@ namespace JewelOfIndiaBuilder.Controllers
         }
 
         // GET api/Apartment/5
-        [ResponseType(typeof(Apartment))]
-        public IHttpActionResult GetApartment(long id)
+        public List<sp_GetApartments_Result> GetApartment(long id)
         {
-            Apartment apartment = _db.Apartments.Find(id);
-            if (apartment == null)
-            {
-                return NotFound();
-            }
+            var apartments = _db.Database.SqlQuery<sp_GetApartments_Result>("exec sp_GetApartments {0}", id).ToList<sp_GetApartments_Result>();
 
-            return Ok(apartment);
+            return apartments;
         }
-
         // PUT api/Apartment/5
         public IHttpActionResult PutApartment(long id, Apartment apartment)
         {

@@ -383,7 +383,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_GetApartments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TowerId" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetTower" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PropertyId" Type="bigint" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -445,6 +451,12 @@
           </AssociationSet>
           <EntitySet Name="Visuals" EntityType="JewelOfIndiaModel.Visual" />
           <FunctionImport Name="sp_GetProperties" EntitySet="Properties" ReturnType="Collection(JewelOfIndiaModel.Property)" />
+          <FunctionImport Name="sp_GetApartments" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartments_Result)">
+            <Parameter Name="TowerId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetTower" ReturnType="Collection(JewelOfIndiaModel.sp_GetTower_Result)">
+            <Parameter Name="PropertyId" Mode="In" Type="Int64" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -697,6 +709,23 @@
           <Property Type="String" Name="Location" Nullable="true" MaxLength="156" />
           <Property Type="String" Name="CodeReference" Nullable="true" MaxLength="10" />
         </ComplexType>
+        <ComplexType Name="sp_GetApartments_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="BedRoom" Nullable="true" />
+          <Property Type="Int32" Name="Bathroom" Nullable="true" />
+          <Property Type="Int32" Name="Garage" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="Int16" Name="FloorLevel" Nullable="true" />
+          <Property Type="String" Name="Direction" Nullable="false" />
+          <Property Type="Int64" Name="TowerId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_GetTower_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="PropertyId" Nullable="false" />
+          <Property Type="String" Name="TowerName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TowerDirection" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -853,6 +882,31 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_GetProperties" FunctionName="JewelOfIndiaModel.Store.sp_GetProperties" >
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetApartments" FunctionName="JewelOfIndiaModel.Store.sp_GetApartments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetApartments_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
+                <ScalarProperty Name="Garage" ColumnName="Garage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="TowerId" ColumnName="TowerId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetTower" FunctionName="JewelOfIndiaModel.Store.sp_GetTower">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetTower_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="TowerName" ColumnName="TowerName" />
+                <ScalarProperty Name="TowerDirection" ColumnName="TowerDirection" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
