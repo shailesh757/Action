@@ -1,4 +1,4 @@
-var serviceURL = "http://localhost:8081/api/";
+var serviceURL = "http://192.168.1.101:8081/api/Property";
 
 var employees;
 
@@ -7,7 +7,7 @@ $('#employeeListPage').bind('pageinit', function(event) {
 });
 
 function getEmployeeList() {
-	$.getJSON('http://localhost:8081/api/Property', function(data) {
+	$.getJSON('http://192.168.1.101:8081/api/Property', function(data) {
 		$('#employeeList li').remove();
 		employees = data;
 		$.each(employees, function(index, employee) {
