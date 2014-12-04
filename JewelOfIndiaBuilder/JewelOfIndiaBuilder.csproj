@@ -215,13 +215,22 @@
     <Compile Include="Models\PropertyType.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetApartmentFeature_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetApartments_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetProperties_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetPropertyFeature_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetTower_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetUser_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tower.cs">
