@@ -23,13 +23,21 @@ namespace JewelOfIndiaBuilder.Controllers
             return _db.Apartments;
         }
 
-        // GET api/Apartment/5
+        
         public List<sp_GetApartments_Result> GetApartment(long id)
         {
             var apartments = _db.Database.SqlQuery<sp_GetApartments_Result>("exec sp_GetApartments {0}", id).ToList<sp_GetApartments_Result>();
 
             return apartments;
         }
+
+        public List<sp_GetApartmentFeature_Result> GetApartmentFeature(long propertyId)
+        {
+            var apartmentFeature = _db.Database.SqlQuery<sp_GetApartmentFeature_Result>("exec sp_GetApartmentFeature {0}", propertyId).ToList<sp_GetApartmentFeature_Result>();
+
+            return apartmentFeature;
+        }
+
         // PUT api/Apartment/5
         public IHttpActionResult PutApartment(long id, Apartment apartment)
         {

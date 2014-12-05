@@ -17,13 +17,20 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
+        public List<sp_GetUser_Result> GetUser(long id)
+        {
+            var users = db.Database.SqlQuery<sp_GetUser_Result>("exec dbo.sp_GetUser {0}", id).ToList<sp_GetUser_Result>();
+
+            return users;
+        }
+
         // GET api/User
         public IQueryable<User> GetUsers()
         {
             return db.Users;
         }
 
-        // GET api/User/5
+       /* // GET api/User/5
         [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(long id)
         {
@@ -34,7 +41,7 @@ namespace JewelOfIndiaBuilder.Controllers
             }
 
             return Ok(user);
-        }
+        }*/
 
         // PUT api/User/5
         public IHttpActionResult PutUser(long id, User user)

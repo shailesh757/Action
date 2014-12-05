@@ -17,8 +17,13 @@ namespace JewelOfIndiaBuilder
             
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{id}/{ftype}",
+                defaults: new { id = RouteParameter.Optional, ftype = RouteParameter.Optional }
+            );
+            config.Routes.MapHttpRoute(
+                name: "featureApi",
+                routeTemplate: "featureApi/{controller}/{propertyId}",
+                defaults: new { id = RouteParameter.Optional, ftype = RouteParameter.Optional }
             );
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
