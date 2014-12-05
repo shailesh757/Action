@@ -23,19 +23,15 @@ namespace JewelOfIndiaBuilder.Controllers
             return db.ApartmetSales;
         }
 
-        // GET api/ApartmentSale/5
-        [ResponseType(typeof(ApartmetSale))]
-        public IHttpActionResult GetApartmetSale(int id)
-        {
-            ApartmetSale apartmetsale = db.ApartmetSales.Find(id);
-            if (apartmetsale == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(apartmetsale);
+        public List<sp_GetApartmentSales_Result> GetApartmetSale(long id)
+        {
+            var apartmentSale = db.Database.SqlQuery<sp_GetApartmentSales_Result>("exec sp_GetApartmentSales {0}", id).ToList<sp_GetApartmentSales_Result>();
+
+            return apartmentSale;
         }
 
+       
         // PUT api/ApartmentSale/5
         public IHttpActionResult PutApartmetSale(int id, ApartmetSale apartmetsale)
         {
