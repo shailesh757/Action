@@ -33,6 +33,13 @@ namespace JewelOfIndiaBuilder.Controllers
 
             return towers;
         }
+        public List<sp_GetTowerFeature_Result> GetTowerFeature(long propertyId)
+        {
+            var towerFeature = db.Database.SqlQuery<sp_GetTowerFeature_Result>("exec sp_GetTowerFeature {0}", propertyId).ToList<sp_GetTowerFeature_Result>();
+
+            return towerFeature;
+        }
+       
 
         // PUT api/Tower/5
         public IHttpActionResult PutTower(long id, Tower tower)

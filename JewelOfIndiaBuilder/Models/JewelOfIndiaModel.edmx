@@ -476,7 +476,7 @@
           <FunctionImport Name="sp_GetPropertyFeature" ReturnType="Collection(JewelOfIndiaModel.sp_GetPropertyFeature_Result)">
             <Parameter Name="PropertyId" Mode="In" Type="Int64" />
           </FunctionImport>
-          <FunctionImport Name="sp_GetTowerFeature">
+          <FunctionImport Name="sp_GetTowerFeature" ReturnType="Collection(JewelOfIndiaModel.sp_GetTowerFeature_Result)">
             <Parameter Name="TowerId" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="sp_GetUser" ReturnType="Collection(JewelOfIndiaModel.sp_GetUser_Result)">
@@ -773,6 +773,12 @@
           <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
         </ComplexType>
+        <ComplexType Name="sp_GetTowerFeature_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -975,7 +981,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetTowerFeature" FunctionName="JewelOfIndiaModel.Store.sp_GetTowerFeature" />
+          <FunctionImportMapping FunctionImportName="sp_GetTowerFeature" FunctionName="JewelOfIndiaModel.Store.sp_GetTowerFeature" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetTowerFeature_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_GetUser" FunctionName="JewelOfIndiaModel.Store.sp_GetUser" >
             <ResultMapping>
               <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetUser_Result">

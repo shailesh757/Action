@@ -28,10 +28,11 @@ namespace JewelOfIndiaBuilder.Controllers
 
         public List<sp_GetPropertyFeature_Result> GetPropertyFeature(long propertyId)
         {
-            var propertyFeature = db.Database.SqlQuery<sp_GetPropertyFeature_Result>("exec sp_GetPropertyFeature_Result {0}", propertyId).ToList<sp_GetPropertyFeature_Result>();
+            var propertyFeature = db.Database.SqlQuery<sp_GetPropertyFeature_Result>("exec sp_GetPropertyFeature {0}", propertyId).ToList<sp_GetPropertyFeature_Result>();
 
             return propertyFeature;
         }
+      
         // GET api/Property/5
         [ResponseType(typeof(Property))]
         public IHttpActionResult GetProperty(long id)

@@ -17,9 +17,9 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
-        public List<sp_GetUser_Result> GetUser(long id)
+        public List<sp_GetUser_Result> GetUser(string userName,string password)
         {
-            var users = db.Database.SqlQuery<sp_GetUser_Result>("exec dbo.sp_GetUser {0}", id).ToList<sp_GetUser_Result>();
+            var users = db.Database.SqlQuery<sp_GetUser_Result>("exec dbo.sp_GetUser {0}, {1}", userName,password).ToList<sp_GetUser_Result>();
 
             return users;
         }
