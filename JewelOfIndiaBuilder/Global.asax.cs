@@ -18,6 +18,13 @@ namespace JewelOfIndiaBuilder
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Filters.Add(new ElmahErrorAttribute());
         }
+
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("elmah.axd");
+        }
+        
     }
 }

@@ -28,8 +28,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET api/Tower/5
         
         public List<sp_GetTower_Result> GetTower(long id)
-        {
-            var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec dbo.sp_GetTower {0}", id).ToList<sp_GetTower_Result>();
+        {var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec dbo.sp_GetTower {0}", id).ToList<sp_GetTower_Result>();
 
             return towers;
         }

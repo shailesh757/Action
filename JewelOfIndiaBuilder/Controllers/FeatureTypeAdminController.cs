@@ -115,6 +115,17 @@ namespace JewelOfIndiaBuilder.Controllers
             return RedirectToAction("Index");
         }
 
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            if (filterContext != null && filterContext.Exception != null)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(filterContext.Exception);
+                filterContext.ExceptionHandled = true;
+                this.View("Error").ViewData["Exception"] = filterContext.Exception.Message;
+                this.View("Error").ExecuteResult(this.ControllerContext);
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

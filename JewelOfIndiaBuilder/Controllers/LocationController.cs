@@ -27,6 +27,7 @@ namespace JewelOfIndiaBuilder.Controllers
         [ResponseType(typeof(Location))]
         public IHttpActionResult GetLocation(int id)
         {
+            throw new Exception("to be testesd");
             Location location = db.Locations.Find(id);
             if (location == null)
             {
