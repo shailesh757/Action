@@ -1,10 +1,10 @@
 $('#apartmentpage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
-	$.getJSON('http://192.168.1.101:8081/api/Apartment/1', displayapt);
+	$.getJSON('http://pnf1l-cts-c-107:8081/api/Apartment/1', displayapt);
 });
 
 function displayapt(data) {
-		$.getJSON('http://192.168.1.101:8081/api/Apartment/1', function(data) {
+		$.getJSON('http://pnf1l-cts-c-107:8081/api/Apartment/1', function(data) {
 		$('#apartmentlist li').remove();
 		apartments = data;
 		$.each(apartments, function(index, apartment) {

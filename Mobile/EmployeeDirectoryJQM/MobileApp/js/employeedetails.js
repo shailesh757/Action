@@ -1,10 +1,10 @@
 $('#detailsPage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
-	$.getJSON('http://192.168.1.101:8081/api/Tower/1', displayEmployee);
+	$.getJSON('http://pnf1l-cts-c-107:8081/api/Tower/1', displayEmployee);
 });
 
 function displayEmployee(data) {
-		$.getJSON('http://192.168.1.101:8081/api/Tower/1', function(data) {
+		$.getJSON('http://pnf1l-cts-c-107:8081/api/Tower/1', function(data) {
 		$('#actionList li').remove();
 		Towers = data;
 		$.each(Towers, function(index, Tower) {
