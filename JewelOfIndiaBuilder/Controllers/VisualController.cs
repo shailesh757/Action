@@ -23,6 +23,12 @@ namespace JewelOfIndiaBuilder.Controllers
             return db.Visuals;
         }
 
+        public List<sp_GetVisualDetail_Result> GetVisualDetail(long detailItemId,string itemType)
+        {
+            var visual = db.Database.SqlQuery<sp_GetVisualDetail_Result>("exec sp_GetVisualDetail {0},{1}", itemType, detailItemId).ToList<sp_GetVisualDetail_Result>();
+            return visual;
+        }
+
         // GET api/Visual/5
         [ResponseType(typeof(Visual))]
         public IHttpActionResult GetVisual(long id)

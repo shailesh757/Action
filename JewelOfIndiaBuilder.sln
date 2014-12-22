@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelOfIndiaBuilder", "JewelOfIndiaBuilder\JewelOfIndiaBuilder.csproj", "{8BE5B341-AE48-4C70-B527-F9C7FAEB11B0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelOfIndiaBuilder.Tests", "JewelOfIndiaBuilder.Tests\JewelOfIndiaBuilder.Tests.csproj", "{AC730F7D-04A1-4460-AFA7-2A53A217C697}"
-EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "JewelOfIndiaBuilder.Azure", "JewelOfIndiaBuilder.Azure\JewelOfIndiaBuilder.Azure.ccproj", "{1EC46645-0452-4124-A360-4C29A81B25FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +15,6 @@ Global
 		{8BE5B341-AE48-4C70-B527-F9C7FAEB11B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE5B341-AE48-4C70-B527-F9C7FAEB11B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE5B341-AE48-4C70-B527-F9C7FAEB11B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC730F7D-04A1-4460-AFA7-2A53A217C697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC730F7D-04A1-4460-AFA7-2A53A217C697}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC730F7D-04A1-4460-AFA7-2A53A217C697}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC730F7D-04A1-4460-AFA7-2A53A217C697}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EC46645-0452-4124-A360-4C29A81B25FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EC46645-0452-4124-A360-4C29A81B25FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EC46645-0452-4124-A360-4C29A81B25FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EC46645-0452-4124-A360-4C29A81B25FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

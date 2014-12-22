@@ -26,10 +26,21 @@ namespace JewelOfIndiaBuilder.Controllers
         //}
 
         // GET api/Tower/5
-        
+        [AcceptVerbs("GET", "POST")]
+        [HttpGet]
         public List<sp_GetTower_Result> GetTower(long id)
-        {var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec dbo.sp_GetTower {0}", id).ToList<sp_GetTower_Result>();
-
+        {
+            var towers = db.Database.SqlQuery<sp_GetTower_Result>("exec dbo.sp_GetTower {0}", id).ToList<sp_GetTower_Result>();
+            var visual = db.Visuals;
+            foreach (var x in towers)
+            {
+                var image = visual.FirstOrDefault(v => v.Type == "T" && v.TypeId == x.Id);
+                if (image != null)
+                {
+                    x.imagePath = image.Name;
+                    x.imageDisplayName = image.DisplayName;
+                }
+            }
             return towers;
         }
         public List<sp_GetTowerFeature_Result> GetTowerFeature(long propertyId)
@@ -37,6 +48,13 @@ namespace JewelOfIndiaBuilder.Controllers
             var towerFeature = db.Database.SqlQuery<sp_GetTowerFeature_Result>("exec sp_GetTowerFeature {0}", propertyId).ToList<sp_GetTowerFeature_Result>();
 
             return towerFeature;
+        }
+
+        public sp_GetTowerDetail_Result GetTowerDetail(long detailItemId)
+        {
+            var toweDetails = db.Database.SqlQuery<sp_GetTowerDetail_Result>("exec dbo.sp_GetTowerDetail {0}", detailItemId).ToList<sp_GetTowerDetail_Result>();
+
+            return toweDetails.FirstOrDefault();
         }
        
 

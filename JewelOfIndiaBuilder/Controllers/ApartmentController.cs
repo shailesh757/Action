@@ -27,8 +27,23 @@ namespace JewelOfIndiaBuilder.Controllers
         public List<sp_GetApartments_Result> GetApartment(long id)
         {
             var apartments = _db.Database.SqlQuery<sp_GetApartments_Result>("exec sp_GetApartments {0}", id).ToList<sp_GetApartments_Result>();
-
+            var visual = _db.Visuals;
+            foreach (var x in apartments)
+            {
+                var image = visual.FirstOrDefault(v => v.Type == "A" && v.TypeId == x.Id);
+                if (image != null)
+                {
+                    x.imagePath = image.Name;
+                    x.imageDisplayName = image.DisplayName;
+                }
+            }
             return apartments;
+        }
+
+        public sp_GetApartmentDetail_Result GetApartmentDetail(long detailItemId)
+        {
+            var apartmentDetail = _db.Database.SqlQuery<sp_GetApartmentDetail_Result>("exec sp_GetApartmentDetail {0}", detailItemId).ToList<sp_GetApartmentDetail_Result>();
+            return apartmentDetail.FirstOrDefault();
         }
 
         public List<sp_GetApartmentFeature_Result> GetApartmentFeature(long propertyId)

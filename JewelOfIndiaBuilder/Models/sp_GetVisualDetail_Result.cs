@@ -11,14 +11,12 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     
-    public partial class sp_GetProperties_Result
+    public partial class sp_GetVisualDetail_Result
     {
-        public long Id { get; set; }
-        public string Feature { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
-        public string CodeReference { get; set; }
-        public string imagePath { get; set; }
-        public string imageDisplayName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+        public string Type { get; set; }
+        public long TypeId { get; set; }
     }
 }

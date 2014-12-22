@@ -225,6 +225,9 @@
     <Compile Include="Models\PropertyType.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetApartmentDetail_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetApartmentFeature_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -240,6 +243,9 @@
     <Compile Include="Models\sp_GetPropertyFeature_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetTowerDetail_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetTowerFeature_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -247,6 +253,9 @@
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetUser_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetVisualDetail_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tower.cs">
@@ -261,6 +270,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\script22122014.sql" />
     <Content Include="App_Data\SqlScript.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />

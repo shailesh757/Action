@@ -11,14 +11,16 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     
-    public partial class sp_GetProperties_Result
+    public partial class sp_GetApartmentDetail_Result
     {
         public long Id { get; set; }
-        public string Feature { get; set; }
+        public Nullable<int> BedRoom { get; set; }
+        public Nullable<int> Bathroom { get; set; }
+        public Nullable<int> Garage { get; set; }
         public string Description { get; set; }
-        public string Location { get; set; }
-        public string CodeReference { get; set; }
-        public string imagePath { get; set; }
-        public string imageDisplayName { get; set; }
+        public Nullable<short> FloorLevel { get; set; }
+        public string Direction { get; set; }
+        public Nullable<long> TowerId { get; set; }
+       
     }
 }

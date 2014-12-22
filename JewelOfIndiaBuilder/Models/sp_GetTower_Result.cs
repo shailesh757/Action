@@ -18,5 +18,7 @@ namespace JewelOfIndiaBuilder.Models
         public string TowerName { get; set; }
         public string TowerDirection { get; set; }
         public string Description { get; set; }
+        public string imagePath { get; set; }
+        public string imageDisplayName { get; set; }
     }
 }

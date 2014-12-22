@@ -6,9 +6,11 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using System.Web.Http.Description;
 using JewelOfIndiaBuilder.Models;
+using WebGrease.Css.Ast.Selectors;
 using EntityState = System.Data.Entity.EntityState;
 
 namespace JewelOfIndiaBuilder.Controllers
@@ -22,8 +24,23 @@ namespace JewelOfIndiaBuilder.Controllers
         public List<sp_GetProperties_Result> GetProperties()
         {
             var props = db.Database.SqlQuery<sp_GetProperties_Result>("exec sp_GetProperties").ToList<sp_GetProperties_Result>();
-
+            var visual = db.Visuals;
+            foreach (var x in props)
+            {
+                var image = visual.FirstOrDefault(v => v.Type == "P" && v.TypeId == x.Id);
+                if (image != null)
+                {
+                    x.imagePath = image.Name;
+                    x.imageDisplayName = image.DisplayName;
+                }
+            }
             return props;
+        }
+
+        public sp_GetProperties_Result GetPropertyDetail(long detailItemId)
+        {
+            var props = db.Database.SqlQuery<sp_GetProperties_Result>("exec sp_GetProperties").ToList<sp_GetProperties_Result>();
+            return props.FirstOrDefault(x => x.Id == detailItemId);
         }
 
         public List<sp_GetPropertyFeature_Result> GetPropertyFeature(long propertyId)
