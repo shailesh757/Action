@@ -20,6 +20,60 @@ namespace JewelOfIndiaBuilder.Controllers
             return View(db.Users.ToList());
         }
 
+        public ViewResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Logoff()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("../Home");
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            bool validEmail = db.Users.Any(x => x.UserName == user.UserName);
+
+            if (!validEmail)
+            {
+                return RedirectToAction("Login");
+            }
+
+            //var salt = GetSaltForUserFromDatabase(username);
+            //var hashedPassword = GetHashedPasswordForUserFromDatabase(username);
+            //var saltedPassword = password + salt;
+
+            string salt = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.Salt)
+                                         .Single();
+
+
+            string password = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.Password)
+                                         .Single();
+
+            bool? isAdmin = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.IsOwner).Single();
+
+
+            bool passwordMatches = System.Web.Helpers.Crypto.VerifyHashedPassword(password, user.Password + salt);
+
+            if (!passwordMatches)
+            {
+                return RedirectToAction("Login");
+            }
+
+            string authId = Guid.NewGuid().ToString();
+
+            Session["AuthID"] = authId;
+            Session["IsAdmin"] = isAdmin;
+
+            return RedirectToAction("../Home");
+        }
+
         // GET: /UserAdmin/Details/5
         public ActionResult Details(long? id)
         {
@@ -46,10 +100,16 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,UserName,Password,EmailId,IsOwner,MobileNo,DOB")] User user)
+        public ActionResult Create([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB")] User user)
         {
             if (ModelState.IsValid)
             {
+                var salt = System.Web.Helpers.Crypto.GenerateSalt();
+                var saltedPassword = user.Password + salt;
+                var hashedPassword = System.Web.Helpers.Crypto.HashPassword(saltedPassword);
+                user.Password = hashedPassword;
+                user.Salt = salt;
+
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +138,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,UserName,Password,EmailId,IsOwner,MobileNo,DOB")] User user)
+        public ActionResult Edit([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -113,17 +173,6 @@ namespace JewelOfIndiaBuilder.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void OnException(ExceptionContext filterContext)
-        {
-            if (filterContext != null && filterContext.Exception != null)
-            {
-                Elmah.ErrorSignal.FromCurrentContext().Raise(filterContext.Exception);
-                filterContext.ExceptionHandled = true;
-                this.View("Error").ViewData["Exception"] = filterContext.Exception.Message;
-                this.View("Error").ExecuteResult(this.ControllerContext);
-            }
         }
 
         protected override void Dispose(bool disposing)

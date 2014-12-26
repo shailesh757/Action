@@ -14,19 +14,15 @@ namespace JewelOfIndiaBuilder.Models
     
     public partial class User
     {
-        public User()
-        {
-            this.ApartmetSales = new HashSet<ApartmetSale>();
-        }
-    
         public long Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string Salt { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
         public string EmailId { get; set; }
         public Nullable<bool> IsOwner { get; set; }
         public string MobileNo { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-    
-        public virtual ICollection<ApartmetSale> ApartmetSales { get; set; }
     }
 }

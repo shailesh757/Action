@@ -15,19 +15,19 @@ namespace JewelOfIndiaBuilder.Models
     using System.Data.Objects;
     using System.Data.Objects.DataClasses;
     using System.Linq;
-    
+
     public partial class JewelOfIndiaEntities : DbContext
     {
         public JewelOfIndiaEntities()
             : base("name=JewelOfIndiaEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public DbSet<Apartment> Apartments { get; set; }
         public DbSet<ApartmetSale> ApartmetSales { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -37,9 +37,9 @@ namespace JewelOfIndiaBuilder.Models
         public DbSet<Property> Properties { get; set; }
         public DbSet<PropertyType> PropertyTypes { get; set; }
         public DbSet<Tower> Towers { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Visual> Visuals { get; set; }
-    
-       
+        public DbSet<User> Users { get; set; }
+
+
     }
 }

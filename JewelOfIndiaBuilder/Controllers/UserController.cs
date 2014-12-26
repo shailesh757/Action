@@ -17,11 +17,27 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
-        public List<sp_GetUser_Result> GetUser(string userName,string password)
+        public string GetUser(string userName, string password)
         {
-            var users = db.Database.SqlQuery<sp_GetUser_Result>("exec dbo.sp_GetUser {0}, {1}", userName,password).ToList<sp_GetUser_Result>();
+            string salt = db.Users.Where(x => x.UserName == userName)
+                                         .Select(x => x.Salt)
+                                         .Single();
 
-            return users;
+
+            string pwd = db.Users.Where(x => x.UserName == userName)
+                                         .Select(x => x.Password)
+                                         .Single();
+
+            bool passwordMatches = System.Web.Helpers.Crypto.VerifyHashedPassword(pwd, password + salt);
+
+            if (passwordMatches)
+            {
+                return Guid.NewGuid().ToString();
+            }
+
+                       
+
+            return "error";
         }
 
         // GET api/User
@@ -30,18 +46,18 @@ namespace JewelOfIndiaBuilder.Controllers
             return db.Users;
         }
 
-       /* // GET api/User/5
-        [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(long id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+        /* // GET api/User/5
+         [ResponseType(typeof(User))]
+         public IHttpActionResult GetUser(long id)
+         {
+             User user = db.Users.Find(id);
+             if (user == null)
+             {
+                 return NotFound();
+             }
 
-            return Ok(user);
-        }*/
+             return Ok(user);
+         }*/
 
         // PUT api/User/5
         public IHttpActionResult PutUser(long id, User user)
