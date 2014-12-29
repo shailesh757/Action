@@ -35,7 +35,7 @@
                     <li>@Html.ActionLink("Feature", "Index", "FeatureAdmin", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Feature Type", "Index", "FeatureTypeAdmin", new { area = "" }, null)</li>*@
                     <li>@Html.ActionLink("Property Type", "Index", "PropertyTypeAdmin", new { area = "" }, null)</li>
-                        if (Session["IsAdmin"].ToString() == "true")
+                        if (Session["IsAdmin"].ToString() == "True")
                         {
                             <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
                         }

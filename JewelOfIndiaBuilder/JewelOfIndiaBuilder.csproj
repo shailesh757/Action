@@ -178,7 +178,9 @@
     <Compile Include="Controllers\TowerAdminController.cs" />
     <Compile Include="Controllers\TowerController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VisualAdminController.cs" />
     <Compile Include="Controllers\VisualController.cs" />
@@ -313,6 +315,7 @@
     <None Include="Properties\PublishProfiles\Action.pubxml" />
     <None Include="Properties\PublishProfiles\TestJewelOfIndia - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TestJewelOfIndia - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TestJewelOfIndia.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -382,12 +385,13 @@
     <Content Include="Views\PropertyTypeAdmin\Details.cshtml" />
     <Content Include="Views\PropertyTypeAdmin\Edit.cshtml" />
     <Content Include="Views\PropertyTypeAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\UserAdmin\Create.cshtml" />
     <Content Include="Views\UserAdmin\Delete.cshtml" />
     <Content Include="Views\UserAdmin\Details.cshtml" />
     <Content Include="Views\UserAdmin\Edit.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
-    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\UserAdmin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -413,7 +417,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61668</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
