@@ -432,6 +432,10 @@
           <Parameter Name="Type" Type="nchar" Mode="In" />
           <Parameter Name="TypeId" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="sp_InsertApartmentSalesStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApartmentId" Type="bigint" Mode="In" />
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="sp_UpdateApartmentSalesStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ApartmentId" Type="bigint" Mode="In" />
           <Parameter Name="BlockedStartDate" Type="datetime" Mode="In" />
@@ -543,6 +547,10 @@
             <End Role="ApartmetSale1" EntitySet="ApartmetSales" />
           </AssociationSet>
           <EntitySet Name="Users" EntityType="JewelOfIndiaModel.User" />
+          <FunctionImport Name="sp_InsertApartmentSalesStatus">
+            <Parameter Name="ApartmentId" Mode="In" Type="Int64" />
+            <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -832,6 +840,7 @@
           <Property Type="Int16" Name="FloorLevel" Nullable="true" />
           <Property Type="String" Name="Direction" Nullable="false" />
           <Property Type="Int64" Name="TowerId" Nullable="true" />
+          <Property Type="Boolean" Name="IsBlocked" Nullable="false" />
         </ComplexType>
         <ComplexType Name="sp_GetTowerDetail_Result">
           <Property Type="Int64" Name="Id" Nullable="false" />
@@ -1110,6 +1119,7 @@
                 <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
                 <ScalarProperty Name="Direction" ColumnName="Direction" />
                 <ScalarProperty Name="TowerId" ColumnName="TowerId" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1151,6 +1161,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertApartmentSalesStatus" FunctionName="JewelOfIndiaModel.Store.sp_InsertApartmentSalesStatus" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

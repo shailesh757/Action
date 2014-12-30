@@ -21,6 +21,6 @@ namespace JewelOfIndiaBuilder.Models
         public Nullable<short> FloorLevel { get; set; }
         public string Direction { get; set; }
         public Nullable<long> TowerId { get; set; }
-       
+        public Nullable<bool> IsBlocked { get; set; }
     }
 }

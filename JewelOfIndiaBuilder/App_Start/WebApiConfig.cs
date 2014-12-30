@@ -14,7 +14,7 @@ namespace JewelOfIndiaBuilder
             // Web API routes
             config.MapHttpAttributeRoutes();
             //config.EnableCors();
-            
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -34,6 +34,11 @@ namespace JewelOfIndiaBuilder
                name: "detailApi",
                routeTemplate: "detailApi/{controller}/{detailItemId}/{itemType}",
                defaults: new { detailItemId = RouteParameter.Optional, itemType = RouteParameter.Optional }
+           );
+            config.Routes.MapHttpRoute(
+               name: "apartmentSaleApi",
+               routeTemplate: "apartmentSaleApi/{controller}/{userid}/{apartmentId}",
+               defaults: new { userid = RouteParameter.Optional, appartmentId = RouteParameter.Optional }
            );
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;

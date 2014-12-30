@@ -17,7 +17,7 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
-        public string GetUser(string userName, string password)
+        public User GetUser(string userName, string password)
         {
             string salt = db.Users.Where(x => x.UserName == userName)
                                          .Select(x => x.Salt)
@@ -32,12 +32,12 @@ namespace JewelOfIndiaBuilder.Controllers
 
             if (passwordMatches)
             {
-                return Guid.NewGuid().ToString();
+                return db.Users.Where(x => x.UserName == userName).Single();
             }
 
                        
 
-            return "error";
+            return new User();
         }
 
         // GET api/User

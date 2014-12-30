@@ -18,53 +18,39 @@ namespace JewelOfIndiaBuilder.Controllers
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
         // GET api/ApartmentSale
-        public IQueryable<ApartmetSale> GetApartmetSales()
+        //public IQueryable<ApartmetSale> GetApartmetSales()
+        //{
+        //    return db.ApartmetSales;
+        //}
+
+
+        //public List<sp_GetApartmentSales_Result> GetApartmetSale(long id)
+        //{
+        //    var apartmentSale = db.Database.SqlQuery<sp_GetApartmentSales_Result>("exec sp_GetApartmentSales {0}", id).ToList<sp_GetApartmentSales_Result>();
+
+        //    return apartmentSale;
+        //}
+
+        public string GetApartmetSales(int userId, int apartmentId)
         {
-            return db.ApartmetSales;
+            ApartmetSale aptSale = new ApartmetSale();
+            aptSale.ApartmentId = apartmentId;
+            aptSale.UserId = userId;
+            aptSale.IsBlocked = true;
+            aptSale.BlockStartDate = System.DateTime.Now;
+            aptSale.BlockEndDate = System.DateTime.Now.AddDays(7);
+            db.ApartmetSales.Add(aptSale);
+            db.SaveChanges();
+            return "success";
         }
 
 
-        public List<sp_GetApartmentSales_Result> GetApartmetSale(long id)
-        {
-            var apartmentSale = db.Database.SqlQuery<sp_GetApartmentSales_Result>("exec sp_GetApartmentSales {0}", id).ToList<sp_GetApartmentSales_Result>();
-
-            return apartmentSale;
-        }
-
-       
         // PUT api/ApartmentSale/5
-        public IHttpActionResult PutApartmetSale(int id, ApartmetSale apartmetsale)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != apartmetsale.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(apartmetsale).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ApartmetSaleExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //public IHttpActionResult PutApartmetSale(int id, int userid)
+        //{
+        //    var apartmentSale = db.Database.ExecuteSqlCommand("exec sp_GetApartmentSales {0} {1}", id, userid);
+        //    return StatusCode(HttpStatusCode.OK);
+        //}
 
         // POST api/ApartmentSale
         [ResponseType(typeof(ApartmetSale))]
