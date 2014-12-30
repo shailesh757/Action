@@ -35,6 +35,11 @@ namespace JewelOfIndiaBuilder
                routeTemplate: "detailApi/{controller}/{detailItemId}/{itemType}",
                defaults: new { detailItemId = RouteParameter.Optional, itemType = RouteParameter.Optional }
            );
+            config.Routes.MapHttpRoute(
+               name: "apartmentSaleApi",
+               routeTemplate: "apartmentSaleApi/{controller}/{userid}/{appartmentId}",
+               defaults: new { userid = RouteParameter.Optional, appartmentId = RouteParameter.Optional }
+           );
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);

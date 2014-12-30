@@ -31,6 +31,12 @@ namespace JewelOfIndiaBuilder.Controllers
             return apartmentSale;
         }
 
+        public ApartmetSale UpdateApartmentSales(int userId, int appartmentId)
+        {
+            var apartmentSale = db.ApartmetSales.FirstOrDefault(x => x.ApartmentId == appartmentId && x.UserId == userId);
+            return apartmentSale;
+        }
+
        
         // PUT api/ApartmentSale/5
         public IHttpActionResult PutApartmetSale(int id, ApartmetSale apartmetsale)
