@@ -24,5 +24,6 @@ namespace JewelOfIndiaBuilder.Models
         public Nullable<bool> IsOwner { get; set; }
         public string MobileNo { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
+        public string newPassword { get; set; }
     }
 }

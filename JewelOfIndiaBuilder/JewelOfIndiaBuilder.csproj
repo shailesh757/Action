@@ -392,6 +392,8 @@
     <Content Include="Views\UserAdmin\Edit.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
     <Content Include="Views\UserAdmin\Login.cshtml" />
+    <Content Include="Views\UserAdmin\ChangePassword.cshtml" />
+    <Content Include="Views\UserAdmin\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

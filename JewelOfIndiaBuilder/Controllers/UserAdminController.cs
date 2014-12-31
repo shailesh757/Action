@@ -25,10 +25,65 @@ namespace JewelOfIndiaBuilder.Controllers
             return View();
         }
 
+        public ViewResult ChangePassword()
+        {
+            return View();
+        }
+
         public ActionResult Logoff()
         {
             Session.Clear();
             Session.Abandon();
+            return RedirectToAction("../Home");
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(User user)
+        {
+            bool validEmail = db.Users.Any(x => x.UserName == user.UserName);
+
+            if (!validEmail)
+            {
+                return RedirectToAction("ChangePassword");
+            }
+
+            //var salt = GetSaltForUserFromDatabase(username);
+            //var hashedPassword = GetHashedPasswordForUserFromDatabase(username);
+            //var saltedPassword = password + salt;
+
+            string salt = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.Salt)
+                                         .Single();
+
+
+            string password = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.Password)
+                                         .Single();
+
+            bool? isAdmin = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.IsOwner).Single();
+
+
+            bool passwordMatches = System.Web.Helpers.Crypto.VerifyHashedPassword(password, user.Password + salt);
+
+            if (!passwordMatches)
+            {
+                return RedirectToAction("ChangePassword");
+            }
+
+           
+
+            var userToUpdate= db.Users.FirstOrDefault(x => x.UserName == user.UserName);
+
+            var newSalt = System.Web.Helpers.Crypto.GenerateSalt();
+            var saltedPassword = user.newPassword + newSalt;
+            var hashedPassword = System.Web.Helpers.Crypto.HashPassword(saltedPassword);
+            userToUpdate.Password = hashedPassword;
+            userToUpdate.Salt = newSalt;
+
+            db.Entry(userToUpdate).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
             return RedirectToAction("../Home");
         }
 
