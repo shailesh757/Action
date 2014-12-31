@@ -43,6 +43,12 @@ namespace JewelOfIndiaBuilder.Controllers
             db.SaveChanges();
             return "success";
         }
+        //[System.Web.Http.AcceptVerbs("GET", "POST")]
+        //[System.Web.Http.HttpGet]
+        public string GetApartmetSalesForDelete(int id, int appId)
+        {
+            return "success";
+        }
 
 
         // PUT api/ApartmentSale/5

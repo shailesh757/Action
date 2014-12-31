@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
@@ -16,10 +18,14 @@ namespace JewelOfIndiaBuilder.Models
     {
         public long Id { get; set; }
         public string UserName { get; set; }
+        [Required(ErrorMessage = "Password can not be blank")]
+        [StringLength(8, ErrorMessage = "Password should be equal or less than 8 character")]
         public string Password { get; set; }
         public string Salt { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
+        [Required(ErrorMessage = "Email can not be blank")]
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "Email is not Valid")]
         public string EmailId { get; set; }
         public Nullable<bool> IsOwner { get; set; }
         public string MobileNo { get; set; }
