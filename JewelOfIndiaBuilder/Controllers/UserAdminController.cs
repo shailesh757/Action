@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -29,12 +30,35 @@ namespace JewelOfIndiaBuilder.Controllers
         {
             return View();
         }
+        public ViewResult ForgotPassword()
+        {
+            return View();
+        }
 
         public ActionResult Logoff()
         {
             Session.Clear();
             Session.Abandon();
             return RedirectToAction("../Home");
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(User user)
+        {
+            var validUser = db.Users.FirstOrDefault(x => x.UserName == user.UserName && x.Answer.ToLower().Trim()== user.Answer.ToLower().Trim());
+
+            if (validUser == null)
+            {
+                return RedirectToAction("ForgotPassword");
+            }
+            db.Entry(validUser).State = System.Data.Entity.EntityState.Modified;
+            var salt = System.Web.Helpers.Crypto.GenerateSalt();
+            var saltedPassword = user.Password + salt;
+            var hashedPassword = System.Web.Helpers.Crypto.HashPassword(saltedPassword);
+            validUser.Password = hashedPassword;
+            validUser.Salt = salt;
+            db.SaveChanges();
+            return RedirectToAction("Login");
         }
 
         [HttpPost]
@@ -90,6 +114,7 @@ namespace JewelOfIndiaBuilder.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
+            
             bool validEmail = db.Users.Any(x => x.UserName == user.UserName);
 
             if (!validEmail)

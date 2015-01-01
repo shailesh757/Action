@@ -18,8 +18,8 @@ namespace JewelOfIndiaBuilder.Models
     {
         public long Id { get; set; }
         public string UserName { get; set; }
-        [Required(ErrorMessage = "Password can not be blank")]
-        [StringLength(8, ErrorMessage = "Password should be equal or less than 8 character")]
+        //[Required(ErrorMessage = "Password can not be blank")]
+        //[StringLength(8, ErrorMessage = "Password should be equal or less than 8 character")]
         public string Password { get; set; }
         public string Salt { get; set; }
         public string Question { get; set; }
