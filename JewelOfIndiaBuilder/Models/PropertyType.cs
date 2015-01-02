@@ -11,6 +11,7 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class PropertyType
     {
@@ -20,6 +21,8 @@ namespace JewelOfIndiaBuilder.Models
         }
     
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Please enter Property Type")]
         public string CodeReference { get; set; }
     
         public virtual ICollection<Property> Properties { get; set; }

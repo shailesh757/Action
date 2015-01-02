@@ -11,6 +11,7 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Apartment
     {
@@ -21,12 +22,26 @@ namespace JewelOfIndiaBuilder.Models
         }
     
         public long Id { get; set; }
+
+        [Required(ErrorMessage = "Please select number of bedrooms")]
         public Nullable<int> BedRoom { get; set; }
+
+        [Required(ErrorMessage = "Please select number of bathrooms")]
         public Nullable<int> Bathroom { get; set; }
+
+        [Required(ErrorMessage = "Please select number of garage")]
         public Nullable<int> Garage { get; set; }
+
+        [Required(ErrorMessage = "Please enter apartment description")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "Please select Floor Level")]
         public Nullable<short> FloorLevel { get; set; }
+
+        [Required(ErrorMessage = "Please enter Apartment direction")]
         public string Direction { get; set; }
+
+        [Required(ErrorMessage = "Please select the Tower")]
         public Nullable<long> TowerId { get; set; }
     
         public virtual Tower Tower { get; set; }

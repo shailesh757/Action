@@ -24,6 +24,9 @@ namespace JewelOfIndiaBuilder.Models
     
         public virtual Apartment Apartment { get; set; }
         public virtual Customer Customer { get; set; }
-        public virtual User User { get; set; }
+        public virtual ApartmetSale ApartmetSales1 { get; set; }
+        public virtual ApartmetSale ApartmetSale1 { get; set; }
+        public virtual ApartmetSale ApartmetSales11 { get; set; }
+        public virtual ApartmetSale ApartmetSale2 { get; set; }
     }
 }

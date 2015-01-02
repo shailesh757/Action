@@ -11,6 +11,7 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Location
     {
@@ -20,11 +21,23 @@ namespace JewelOfIndiaBuilder.Models
         }
     
         public int Id { get; set; }
+
+         [Required(ErrorMessage = "Please enter Location Address")]
         public string Address { get; set; }
+
+         [Required(ErrorMessage = "Please enter Location Zipcode")]
         public string ZipCode { get; set; }
+
+        [Required(ErrorMessage = "Please enter Location State")]
         public string state { get; set; }
+
+        [Required(ErrorMessage = "Please enter Location Country")]
         public string Country { get; set; }
+
+        [Required(ErrorMessage = "Please enter Location Latitude")]
         public string Latitude { get; set; }
+
+        [Required(ErrorMessage = "Please enter Location Longitude")]
         public string Longitude { get; set; }
     
         public virtual ICollection<Property> Properties { get; set; }

@@ -17,12 +17,20 @@ namespace JewelOfIndiaBuilder.Models
     public partial class User
     {
         public long Id { get; set; }
+
+        [Required(ErrorMessage = "Please enter User Name")]
         public string UserName { get; set; }
         //[Required(ErrorMessage = "Password can not be blank")]
         //[StringLength(8, ErrorMessage = "Password should be equal or less than 8 character")]
+
+        [Required(ErrorMessage = "Please enter Password")]
         public string Password { get; set; }
         public string Salt { get; set; }
+
+        [Required(ErrorMessage = "Please enter Question to retrieve password")]
         public string Question { get; set; }
+
+        [Required(ErrorMessage = "Please enter Answer to retrieve password")]
         public string Answer { get; set; }
         [Required(ErrorMessage = "Email can not be blank")]
         [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "Email is not Valid")]
