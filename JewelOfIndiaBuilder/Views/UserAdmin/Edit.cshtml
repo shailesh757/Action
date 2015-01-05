@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UserName,"User Name", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.UserName)
                 @Html.ValidationMessageFor(model => model.UserName)
@@ -58,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmailId, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmailId,"Email Id", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EmailId)
                 @Html.ValidationMessageFor(model => model.EmailId)
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsOwner, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsOwner,"Is Admin", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IsOwner)
                 @Html.ValidationMessageFor(model => model.IsOwner)
@@ -74,7 +74,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MobileNo, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MobileNo,"Mobile No", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MobileNo)
                 @Html.ValidationMessageFor(model => model.MobileNo)
