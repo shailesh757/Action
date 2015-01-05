@@ -37,6 +37,8 @@ namespace JewelOfIndiaBuilder.Models
         public string EmailId { get; set; }
         public Nullable<bool> IsOwner { get; set; }
         public string MobileNo { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public Nullable<System.DateTime> DOB { get; set; }
         public string newPassword { get; set; }
     }
