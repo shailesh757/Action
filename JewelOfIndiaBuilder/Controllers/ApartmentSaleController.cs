@@ -62,13 +62,11 @@ namespace JewelOfIndiaBuilder.Controllers
         }
 
 
-        // PUT api/ApartmentSale/5
-        //public IHttpActionResult PutApartmetSale(int id, int userid)
-        //{
-        //    var apartmentSale = db.Database.ExecuteSqlCommand("exec sp_GetApartmentSales {0} {1}", id, userid);
-        //    return StatusCode(HttpStatusCode.OK);
-        //}
-
+        public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
+        {
+            var apartments = db.Database.SqlQuery<sp_GetApartmentSalesByUser_Result>("exec sp_GetApartmentSalesByUser {0}", id).ToList<sp_GetApartmentSalesByUser_Result>();
+            return apartments;
+        }
         // POST api/ApartmentSale
         [ResponseType(typeof(ApartmetSale))]
         public IHttpActionResult PostApartmetSale(ApartmetSale apartmetsale)
