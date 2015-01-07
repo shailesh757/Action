@@ -24,14 +24,14 @@
             </div>
             <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
+                    <li id="profLink">
+                        <a class="glyphicon glyphicon-th-large">My Profile</a>
+                    </li>
+                    <li id="LockPropLink">
+                        <a class="glyphicon glyphicon-th-large">Locked Properties</a>
+                    </li>
                     <li id="propLink">
-                        <a class="glyphicon glyphicon-th-large">Property</a>
-                    </li>
-                    <li id ="towerLink">
-                        <a class="glyphicon glyphicon-th-large">Tower</a>
-                    </li>
-                    <li id ="aptLink">
-                        <a class="glyphicon glyphicon-th-large">Apartments</a>
+                        <a class="glyphicon glyphicon-th-large">All Properties</a>
                     </li>
             </nav>
         </div>
@@ -58,6 +58,63 @@
             </div>
         </div>
     </div>
+    <div class="UserProfile">
+        <div class="container">
+            <h3 align="center">User Profile</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt bedRoom">
+                        <div class="imgCntW">
+                            User Name
+                        </div>
+                        <div class="itemText">
+                            <label for="uname"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Bathroom">
+                        <div class="imgCntW">
+                            Email ID
+                        </div>
+                        <div class="itemText">
+                            <label for="email"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCntW">
+                            Mobile Number
+                        </div>
+                        <div class="itemText">
+                            <label for="mobile"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCntW">
+                            Date Of Birth
+                        </div>
+                        <div class="itemText">
+                            <label for="dob"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <button class="btn btn-md btn-info" id="btnLockProp" itemid="">View Locked Properties</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <button class="btn btn-md btn-info" id="btnViewAll" itemid="">View All Properties</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="content">
         <ul id="employeeList" data-role="listview" data-filter="true"></ul>
     </div>
@@ -67,16 +124,19 @@
     <div class="aptcontent">
         <ul id="apartmentlist" data-role="listview" data-inset="true"></ul>
     </div>
+    <div class="lockpropcontent">
+        <ul id="lockproplist" data-role="listview" data-inset="true"></ul>
+    </div>
     <div class="bookingCnt">
         <div class="container-fluid">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div id="carousel-prop" class="carousel slide" data-slide="carousel">
                 <div class="carousel-inner" role="listbox">
                 </div>
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#carousel-prop" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <a class="right carousel-control" href="#carousel-prop" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -90,7 +150,7 @@
                             <img src="images/feature.png">
                         </div>
                         <div class="itemText">
-                            <label for = "feature"></label>
+                            <label for="feature"></label>
                         </div>
                     </div>
                 </div>
@@ -100,7 +160,7 @@
                             <img src="images/desc.png">
                         </div>
                         <div class="itemText">
-                            <label for = "desc"></label>
+                            <label for="desc"></label>
                         </div>
                     </div>
                 </div>
@@ -110,7 +170,7 @@
                             <img src="images/location.png">
                         </div>
                         <div class="itemText">
-                            <label for = "location"></label>
+                            <label for="location"></label>
                         </div>
                     </div>
                 </div>
@@ -122,7 +182,7 @@
                             <img src="images/type.png">
                         </div>
                         <div class="itemText">
-                            <label for = "type"></label>
+                            <label for="type"></label>
                         </div>
 
                     </div>
@@ -130,21 +190,21 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <button class="btn btn-md btn-info" id ="viewTower" itemid ="">View Towers</button>
+                    <button class="btn btn-md btn-info" id="viewTower" itemid="">View Towers</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="TowerDetail">
         <div class="container-fluid">
-            <div id="Div1" class="carousel slide" data-ride="carousel">
+            <div id="carousel-tower" class="carousel slide" data-slide="carousel">
                 <div class="carousel-inner" role="listbox">
                 </div>
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#carousel-tower" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <a class="right carousel-control" href="#carousel-tower" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -158,7 +218,7 @@
                             <img src="images/feature.png">
                         </div>
                         <div class="itemText">
-                            <label for = "feature"></label>
+                            <label for="feature"></label>
                         </div>
                     </div>
                 </div>
@@ -168,7 +228,7 @@
                             <img src="images/desc.png">
                         </div>
                         <div class="itemText">
-                            <label for = "desc"></label>
+                            <label for="desc"></label>
                         </div>
                     </div>
                 </div>
@@ -178,28 +238,28 @@
                             <img src="images/location.png">
                         </div>
                         <div class="itemText">
-                            <label for = "location"></label>
+                            <label for="location"></label>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <button class="btn btn-md btn-info" id ="viewApts" itemid ="">View Apartments</button>
+                    <button class="btn btn-md btn-info" id="viewApts" itemid="">View Apartments</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="AptDetail">
         <div class="container-fluid">
-            <div id="Div2" class="carousel slide" data-ride="carousel">
+            <div id="carousel-apt" class="carousel slide" data-slide="carousel">
                 <div class="carousel-inner" role="listbox">
                 </div>
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#carousel-apt" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <a class="right carousel-control" href="#carousel-apt" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -213,7 +273,7 @@
                             <img src="images/bedroom.png">
                         </div>
                         <div class="itemText">
-                            <label for = "bedroom"></label>
+                            <label for="bedroom"></label>
                         </div>
                     </div>
                 </div>
@@ -223,7 +283,7 @@
                             <img src="images/bathroom.png">
                         </div>
                         <div class="itemText">
-                            <label for = "bathroom"></label>
+                            <label for="bathroom"></label>
                         </div>
                     </div>
                 </div>
@@ -233,7 +293,7 @@
                             <img src="images/carParking.png">
                         </div>
                         <div class="itemText">
-                            <label for = "garage"></label>
+                            <label for="garage"></label>
                         </div>
                     </div>
                 </div>
@@ -243,7 +303,7 @@
                             <img src="images/floorlevel.png">
                         </div>
                         <div class="itemText">
-                            <label for = "floorlevel"></label>
+                            <label for="floorlevel"></label>
                         </div>
                     </div>
                 </div>
@@ -253,7 +313,7 @@
                             <img src="images/desc.png">
                         </div>
                         <div class="itemText">
-                            <label for = "desc"></label>
+                            <label for="desc"></label>
                         </div>
                     </div>
                 </div>
@@ -263,14 +323,14 @@
                             <img src="images/location.png">
                         </div>
                         <div class="itemText">
-                            <label for = "location"></label>
+                            <label for="location"></label>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <button class="btn btn-md btn-info" id ="LockProp" itemid ="">Lock Property</button>
+                    <button class="btn btn-md btn-info" id="LockProp" itemid="">Lock Property</button>
                 </div>
             </div>
         </div>

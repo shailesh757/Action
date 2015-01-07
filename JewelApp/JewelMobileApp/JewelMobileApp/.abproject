@@ -3,7 +3,7 @@
   "ProjectGuid": "1fdfeefd-5f07-413e-87f6-ee147658e223",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.JewelMobileApp",
-  "DisplayName": "JewelMobileApp",
+  "DisplayName": "Jewel of India",
   "Author": "",
   "Description": "",
   "BundleVersion": "1.0",
@@ -17,8 +17,8 @@
   "WP8Publisher": "",
   "WP8Capabilities": [],
   "WP8Requirements": [],
-  "WP8PublisherID": "",
-  "WP8ProductID": "",
+  "WP8PublisherID": "{4d348b67-8da7-45ae-a9d2-1be214f76644}",
+  "WP8ProductID": "{d265abab-6d0c-4d0e-a876-b9727753e3ee}",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.5.0",
   "CorePlugins": [
@@ -66,7 +66,7 @@
     "Portrait",
     "Landscape"
   ],
-  "AndroidHardwareAcceleration": "false",
+  "AndroidHardwareAcceleration": "true",
   "iOSStatusBarStyle": "Default",
   "WP8SupportedResolutions": [
     "ID_RESOLUTION_WVGA",
