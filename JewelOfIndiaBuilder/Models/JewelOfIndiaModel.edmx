@@ -411,6 +411,9 @@
         <Function Name="sp_GetApartments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TowerId" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="sp_GetApartmentSalesByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetPropertyFeature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PropertyId" Type="bigint" Mode="In" />
@@ -549,6 +552,9 @@
           <EntitySet Name="Users" EntityType="JewelOfIndiaModel.User" />
           <FunctionImport Name="sp_InsertApartmentSalesStatus">
             <Parameter Name="ApartmentId" Mode="In" Type="Int64" />
+            <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetApartmentSalesByUser" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentSalesByUser_Result)">
             <Parameter Name="UserId" Mode="In" Type="Int64" />
           </FunctionImport>
         </EntityContainer>
@@ -895,6 +901,12 @@
           <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DOB" Precision="3" />
         </EntityType>
+        <ComplexType Name="sp_GetApartmentSalesByUser_Result">
+          <Property Type="String" Name="PropertyDesc" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TowerDesc" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApartmentDesc" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="24" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1162,6 +1174,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertApartmentSalesStatus" FunctionName="JewelOfIndiaModel.Store.sp_InsertApartmentSalesStatus" />
+          <FunctionImportMapping FunctionImportName="sp_GetApartmentSalesByUser" FunctionName="JewelOfIndiaModel.Store.sp_GetApartmentSalesByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetApartmentSalesByUser_Result">
+                <ScalarProperty Name="PropertyDesc" ColumnName="PropertyDesc" />
+                <ScalarProperty Name="TowerDesc" ColumnName="TowerDesc" />
+                <ScalarProperty Name="ApartmentDesc" ColumnName="ApartmentDesc" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

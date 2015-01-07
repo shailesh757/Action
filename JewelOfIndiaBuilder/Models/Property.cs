@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Property
     {
         public Property()
@@ -23,17 +21,9 @@ namespace JewelOfIndiaBuilder.Models
         }
     
         public long Id { get; set; }
-
-        [Required(ErrorMessage = "Please enter Property Feature")]
         public string Feature { get; set; }
-        
-        [Required(ErrorMessage = "Please enter Property Description")]
         public string Description { get; set; }
-
-        [Required(ErrorMessage = "Please select Property Location")]
         public Nullable<int> LocationId { get; set; }
-
-        [Required(ErrorMessage = "Please select Property Type")]
         public Nullable<int> PropertyTypeId { get; set; }
     
         public virtual Location Location { get; set; }

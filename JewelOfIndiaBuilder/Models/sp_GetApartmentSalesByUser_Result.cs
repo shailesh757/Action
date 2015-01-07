@@ -10,18 +10,12 @@
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PropertyType
+    public partial class sp_GetApartmentSalesByUser_Result
     {
-        public PropertyType()
-        {
-            this.Properties = new HashSet<Property>();
-        }
-    
-        public int Id { get; set; }
-        public string CodeReference { get; set; }
-    
-        public virtual ICollection<Property> Properties { get; set; }
+        public string PropertyDesc { get; set; }
+        public string TowerDesc { get; set; }
+        public string ApartmentDesc { get; set; }
+        public string StartDate { get; set; }
     }
 }
