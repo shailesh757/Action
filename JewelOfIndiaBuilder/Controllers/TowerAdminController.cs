@@ -14,7 +14,9 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
+      
         // GET: /TowerAdmin/
+        
         public ActionResult Index()
         {
             var towers = db.Towers.Include(t => t.Property);

@@ -61,7 +61,11 @@ namespace JewelOfIndiaBuilder.Controllers
                 return "error";
             }
         }
-
+        public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
+        {
+            var apartments = db.Database.SqlQuery<sp_GetApartmentSalesByUser_Result>("exec sp_GetApartmentSalesByUser {0}", id).ToList<sp_GetApartmentSalesByUser_Result>();
+            return apartments;
+        }
 
         public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
         {

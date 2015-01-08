@@ -34,7 +34,6 @@ namespace JewelOfIndiaBuilder.Controllers
         {
             return View();
         }
-
         public ActionResult Logoff()
         {
             Session.Clear();

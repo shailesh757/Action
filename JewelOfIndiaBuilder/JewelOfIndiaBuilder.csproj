@@ -316,6 +316,7 @@
       <LastGenOutput>JewelOfIndiaModel.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\Action.pubxml" />
+    <None Include="Properties\PublishProfiles\JewelNet4.pubxml" />
     <None Include="Properties\PublishProfiles\TestJewelOfIndia - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TestJewelOfIndia - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TestJewelOfIndia.pubxml" />

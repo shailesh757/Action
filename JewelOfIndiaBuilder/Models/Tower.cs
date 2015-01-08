@@ -11,8 +11,6 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
     
     public partial class Tower
     {
@@ -23,17 +21,9 @@ namespace JewelOfIndiaBuilder.Models
         }
     
         public long Id { get; set; }
-
-        [Required(ErrorMessage = "Please select Property")]
         public long PropertyId { get; set; }
-
-        [Required(ErrorMessage = "Please enter Tower Name")]
         public string TowerName { get; set; }
-        
-        [Required(ErrorMessage = "Please enter Tower Direction")]
         public string TowerDirection { get; set; }
-
-        [Required(ErrorMessage = "Please enter Tower Description")]
         public string Description { get; set; }
     
         public virtual ICollection<Apartment> Apartments { get; set; }
