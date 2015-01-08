@@ -48,8 +48,9 @@ namespace JewelOfIndiaBuilder.Controllers
         public string GetApartmetSalesForDelete(int id, int appId)
         {
             ApartmetSale aptSale = new ApartmetSale();
-            aptSale = db.ApartmetSales.Where(x => x.ApartmentId == appId).Single();
-            if (aptSale.UserId == id)
+            aptSale = db.ApartmetSales.FirstOrDefault(x => x.ApartmentId == appId);
+            var appUser = db.Users.FirstOrDefault(user => user.Id == id);
+            if (appUser != null && (aptSale != null && (aptSale.UserId == id || appUser.IsOwner==true)))
             {
                 db.ApartmetSales.Remove(aptSale);
                 db.SaveChanges();
