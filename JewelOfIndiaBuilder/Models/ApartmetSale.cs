@@ -21,6 +21,7 @@ namespace JewelOfIndiaBuilder.Models
         public Nullable<long> UserId { get; set; }
         public Nullable<System.DateTime> BlockStartDate { get; set; }
         public Nullable<System.DateTime> BlockEndDate { get; set; }
+        public Nullable<short> SalesType { get; set; }
     
         public virtual Apartment Apartment { get; set; }
         public virtual Customer Customer { get; set; }
@@ -28,5 +29,6 @@ namespace JewelOfIndiaBuilder.Models
         public virtual ApartmetSale ApartmetSale1 { get; set; }
         public virtual ApartmetSale ApartmetSales11 { get; set; }
         public virtual ApartmetSale ApartmetSale2 { get; set; }
+        public virtual ApartmentSalesType ApartmentSalesType { get; set; }
     }
 }

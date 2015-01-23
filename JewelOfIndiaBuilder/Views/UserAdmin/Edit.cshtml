@@ -1,4 +1,6 @@
-﻿@model JewelOfIndiaBuilder.Models.User
+﻿
+
+@model JewelOfIndiaBuilder.Models.User
 
 @{
     ViewBag.Title = "Edit";
@@ -86,6 +88,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DOB)
                 @Html.ValidationMessageFor(model => model.DOB)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserTypeId, "User Type", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UserTypeId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UserTypeId)
+
             </div>
         </div>
 

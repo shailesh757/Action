@@ -28,6 +28,10 @@
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales" />
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.User" Width="1.5" PointX="8.793933099505459" PointY="26.16896822777063" />
+        <EntityTypeShape EntityType="JewelOfIndiaModel.ApartmentSalesType" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="JewelOfIndiaModel.UserType" Width="1.5" PointX="6.5" PointY="27" />
+        <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType" />
+        <AssociationConnector Association="JewelOfIndiaModel.FK_Users_UserType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

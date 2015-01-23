@@ -191,6 +191,9 @@
     <Compile Include="Models\Apartment.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApartmentSalesType.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ApartmetSale.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -269,6 +272,9 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserType.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Visual.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -276,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\script22122014.sql" />
+    <Content Include="App_Data\script23012015.sql" />
     <Content Include="App_Data\SqlScript.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />

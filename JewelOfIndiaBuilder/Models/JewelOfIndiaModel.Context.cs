@@ -39,7 +39,8 @@ namespace JewelOfIndiaBuilder.Models
         public DbSet<Tower> Towers { get; set; }
         public DbSet<Visual> Visuals { get; set; }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<ApartmentSalesType> ApartmentSalesTypes { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
 
     }
 }

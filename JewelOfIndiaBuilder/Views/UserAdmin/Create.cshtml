@@ -81,6 +81,15 @@
                 @Html.ValidationMessageFor(model => model.DOB)
             </div>
         </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserTypeId, "User Type", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UserTypeId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UserTypeId)
+
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

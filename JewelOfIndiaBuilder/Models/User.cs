@@ -31,5 +31,7 @@ namespace JewelOfIndiaBuilder.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public Nullable<System.DateTime> DOB { get; set; }
         public string newPassword { get; set; }
+        public Nullable<int> UserTypeId { get; set; }
+        public virtual UserType UserType { get; set; }
     }
 }

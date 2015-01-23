@@ -10,17 +10,18 @@
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_GetApartmentDetail_Result
+    public partial class UserType
     {
-        public long Id { get; set; }
-        public Nullable<int> BedRoom { get; set; }
-        public Nullable<int> Bathroom { get; set; }
-        public Nullable<int> Garage { get; set; }
-        public string Description { get; set; }
-        public Nullable<short> FloorLevel { get; set; }
-        public string Direction { get; set; }
-        public Nullable<long> TowerId { get; set; }
-        public bool IsBlocked { get; set; }
+        public UserType()
+        {
+            this.Users = new HashSet<User>();
+        }
+    
+        public int Id { get; set; }
+        public string UserTypeCode { get; set; }
+    
+        public virtual ICollection<User> Users { get; set; }
     }
 }

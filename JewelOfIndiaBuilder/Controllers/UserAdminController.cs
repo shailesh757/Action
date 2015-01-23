@@ -171,6 +171,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /UserAdmin/Create
         public ActionResult Create()
         {
+            ViewBag.UserTypeId = new SelectList(db.UserTypes, "Id", "UserTypeCode");
             return View();
         }
 
@@ -179,7 +180,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB")] User user)
+        public ActionResult Create([Bind(Include = "Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB,UserTypeId")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -193,7 +194,7 @@ namespace JewelOfIndiaBuilder.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.UserTypeId = new SelectList(db.UserTypes, "Id", "UserTypeCode",user.UserTypeId);
             return View(user);
         }
 
@@ -209,6 +210,7 @@ namespace JewelOfIndiaBuilder.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserTypeId = new SelectList(db.UserTypes, "Id", "UserTypeCode", user.UserTypeId);
             return View(user);
         }
 
@@ -217,7 +219,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB")] User user)
+        public ActionResult Edit([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB,UserTypeId")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -225,6 +227,7 @@ namespace JewelOfIndiaBuilder.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserTypeId = new SelectList(db.UserTypes, "Id", "UserTypeCode", user.UserTypeId);
             return View(user);
         }
 
