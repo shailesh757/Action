@@ -4,83 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="JewelOfIndiaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="JewelOfIndiaModelStoreContainer">
-          <EntitySet Name="ApartmentFeature" EntityType="JewelOfIndiaModel.Store.ApartmentFeature" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Apartments" EntityType="JewelOfIndiaModel.Store.Apartments" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ApartmetSales" EntityType="JewelOfIndiaModel.Store.ApartmetSales" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Customers" EntityType="JewelOfIndiaModel.Store.Customers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Features" EntityType="JewelOfIndiaModel.Store.Features" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="FeatureTypes" EntityType="JewelOfIndiaModel.Store.FeatureTypes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Locations" EntityType="JewelOfIndiaModel.Store.Locations" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Properties" EntityType="JewelOfIndiaModel.Store.Properties" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PropertyFeature" EntityType="JewelOfIndiaModel.Store.PropertyFeature" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PropertyTypes" EntityType="JewelOfIndiaModel.Store.PropertyTypes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TowerFeature" EntityType="JewelOfIndiaModel.Store.TowerFeature" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Towers" EntityType="JewelOfIndiaModel.Store.Towers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Users" EntityType="JewelOfIndiaModel.Store.Users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Visual" EntityType="JewelOfIndiaModel.Store.Visual" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Apartment_Tower" Association="JewelOfIndiaModel.Store.FK_Apartment_Tower">
-            <End Role="Towers" EntitySet="Towers" />
-            <End Role="Apartments" EntitySet="Apartments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmentFeature_Apartment" Association="JewelOfIndiaModel.Store.FK_ApartmentFeature_Apartment">
-            <End Role="Apartments" EntitySet="Apartments" />
-            <End Role="ApartmentFeature" EntitySet="ApartmentFeature" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmentFeature_Feature" Association="JewelOfIndiaModel.Store.FK_ApartmentFeature_Feature">
-            <End Role="Features" EntitySet="Features" />
-            <End Role="ApartmentFeature" EntitySet="ApartmentFeature" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_Apartment" Association="JewelOfIndiaModel.Store.FK_ApartmetSales_Apartment">
-            <End Role="Apartments" EntitySet="Apartments" />
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_ApartmetSales" Association="JewelOfIndiaModel.Store.FK_ApartmetSales_ApartmetSales">
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_ApartmetSales1" Association="JewelOfIndiaModel.Store.FK_ApartmetSales_ApartmetSales1">
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_Customer" Association="JewelOfIndiaModel.Store.FK_ApartmetSales_Customer">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Feature_FeatureType" Association="JewelOfIndiaModel.Store.FK_Feature_FeatureType">
-            <End Role="FeatureTypes" EntitySet="FeatureTypes" />
-            <End Role="Features" EntitySet="Features" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Property_Location" Association="JewelOfIndiaModel.Store.FK_Property_Location">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Properties" EntitySet="Properties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Property_PropertyType" Association="JewelOfIndiaModel.Store.FK_Property_PropertyType">
-            <End Role="PropertyTypes" EntitySet="PropertyTypes" />
-            <End Role="Properties" EntitySet="Properties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PropertyFeature_Feature" Association="JewelOfIndiaModel.Store.FK_PropertyFeature_Feature">
-            <End Role="Features" EntitySet="Features" />
-            <End Role="PropertyFeature" EntitySet="PropertyFeature" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PropertyFeature_Property" Association="JewelOfIndiaModel.Store.FK_PropertyFeature_Property">
-            <End Role="Properties" EntitySet="Properties" />
-            <End Role="PropertyFeature" EntitySet="PropertyFeature" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tower_Property" Association="JewelOfIndiaModel.Store.FK_Tower_Property">
-            <End Role="Properties" EntitySet="Properties" />
-            <End Role="Towers" EntitySet="Towers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TowerFeature_Feature" Association="JewelOfIndiaModel.Store.FK_TowerFeature_Feature">
-            <End Role="Features" EntitySet="Features" />
-            <End Role="TowerFeature" EntitySet="TowerFeature" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TowerFeature_Tower" Association="JewelOfIndiaModel.Store.FK_TowerFeature_Tower">
-            <End Role="Towers" EntitySet="Towers" />
-            <End Role="TowerFeature" EntitySet="TowerFeature" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="JewelOfIndiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ApartmentFeature">
           <Key>
             <PropertyRef Name="Apartments_Id" />
@@ -93,7 +17,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BedRoom" Type="int" />
           <Property Name="Bathroom" Type="int" />
           <Property Name="Garage" Type="int" />
@@ -102,23 +26,31 @@
           <Property Name="Direction" Type="varchar(max)" Nullable="false" />
           <Property Name="TowerId" Type="bigint" />
         </EntityType>
+        <EntityType Name="ApartmentSalesType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalesType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="ApartmetSales">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ApartmentId" Type="bigint" />
           <Property Name="IsBlocked" Type="bit" Nullable="false" />
           <Property Name="CustomerId" Type="bigint" />
           <Property Name="UserId" Type="bigint" />
           <Property Name="BlockStartDate" Type="datetime" />
+          <Property Name="SalesType" Type="smallint" />
           <Property Name="BlockEndDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
@@ -138,7 +70,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
@@ -146,7 +78,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
           <Property Name="state" Type="nvarchar" MaxLength="50" />
@@ -158,7 +90,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Feature" Type="nvarchar" MaxLength="200" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="LocationId" Type="int" />
@@ -191,7 +123,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PropertyId" Type="bigint" Nullable="false" />
           <Property Name="TowerName" Type="nvarchar" MaxLength="100" />
           <Property Name="TowerDirection" Type="nvarchar" MaxLength="100" />
@@ -201,7 +133,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" />
           <Property Name="Salt" Type="nvarchar" MaxLength="200" />
@@ -211,20 +143,28 @@
           <Property Name="IsOwner" Type="bit" />
           <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
           <Property Name="DOB" Type="datetime" />
+          <Property Name="UserTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeCode" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Visual">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Type" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="TypeId" Type="bigint" Nullable="false" />
         </EntityType>
         <Association Name="FK_Apartment_Tower">
-          <End Role="Towers" Type="JewelOfIndiaModel.Store.Towers" Multiplicity="0..1" />
-          <End Role="Apartments" Type="JewelOfIndiaModel.Store.Apartments" Multiplicity="*" />
+          <End Role="Towers" Type="Self.Towers" Multiplicity="0..1" />
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Towers">
               <PropertyRef Name="Id" />
@@ -235,8 +175,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApartmentFeature_Apartment">
-          <End Role="Apartments" Type="JewelOfIndiaModel.Store.Apartments" Multiplicity="1" />
-          <End Role="ApartmentFeature" Type="JewelOfIndiaModel.Store.ApartmentFeature" Multiplicity="*" />
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="1" />
+          <End Role="ApartmentFeature" Type="Self.ApartmentFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Apartments">
               <PropertyRef Name="Id" />
@@ -247,8 +187,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApartmentFeature_Feature">
-          <End Role="Features" Type="JewelOfIndiaModel.Store.Features" Multiplicity="1" />
-          <End Role="ApartmentFeature" Type="JewelOfIndiaModel.Store.ApartmentFeature" Multiplicity="*" />
+          <End Role="Features" Type="Self.Features" Multiplicity="1" />
+          <End Role="ApartmentFeature" Type="Self.ApartmentFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Features">
               <PropertyRef Name="Id" />
@@ -259,8 +199,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApartmetSales_Apartment">
-          <End Role="Apartments" Type="JewelOfIndiaModel.Store.Apartments" Multiplicity="0..1" />
-          <End Role="ApartmetSales" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="*" />
+          <End Role="Apartments" Type="Self.Apartments" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Apartments">
               <PropertyRef Name="Id" />
@@ -270,9 +210,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ApartmetSales_ApartmentSalesType">
+          <End Role="ApartmentSalesType" Type="Self.ApartmentSalesType" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApartmentSalesType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApartmetSales">
+              <PropertyRef Name="SalesType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ApartmetSales_ApartmetSales">
-          <End Role="ApartmetSales" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="1" />
-          <End Role="ApartmetSales1" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="1" />
+          <End Role="ApartmetSales1" Type="Self.ApartmetSales" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="ApartmetSales">
               <PropertyRef Name="Id" />
@@ -283,8 +235,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApartmetSales_ApartmetSales1">
-          <End Role="ApartmetSales" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="1" />
-          <End Role="ApartmetSales1" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="1" />
+          <End Role="ApartmetSales1" Type="Self.ApartmetSales" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="ApartmetSales">
               <PropertyRef Name="Id" />
@@ -295,8 +247,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApartmetSales_Customer">
-          <End Role="Customers" Type="JewelOfIndiaModel.Store.Customers" Multiplicity="0..1" />
-          <End Role="ApartmetSales" Type="JewelOfIndiaModel.Store.ApartmetSales" Multiplicity="*" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="Id" />
@@ -307,8 +259,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Feature_FeatureType">
-          <End Role="FeatureTypes" Type="JewelOfIndiaModel.Store.FeatureTypes" Multiplicity="1" />
-          <End Role="Features" Type="JewelOfIndiaModel.Store.Features" Multiplicity="*" />
+          <End Role="FeatureTypes" Type="Self.FeatureTypes" Multiplicity="1" />
+          <End Role="Features" Type="Self.Features" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FeatureTypes">
               <PropertyRef Name="Id" />
@@ -319,8 +271,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Property_Location">
-          <End Role="Locations" Type="JewelOfIndiaModel.Store.Locations" Multiplicity="0..1" />
-          <End Role="Properties" Type="JewelOfIndiaModel.Store.Properties" Multiplicity="*" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Locations">
               <PropertyRef Name="Id" />
@@ -331,8 +283,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Property_PropertyType">
-          <End Role="PropertyTypes" Type="JewelOfIndiaModel.Store.PropertyTypes" Multiplicity="0..1" />
-          <End Role="Properties" Type="JewelOfIndiaModel.Store.Properties" Multiplicity="*" />
+          <End Role="PropertyTypes" Type="Self.PropertyTypes" Multiplicity="0..1" />
+          <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PropertyTypes">
               <PropertyRef Name="Id" />
@@ -343,8 +295,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyFeature_Feature">
-          <End Role="Features" Type="JewelOfIndiaModel.Store.Features" Multiplicity="1" />
-          <End Role="PropertyFeature" Type="JewelOfIndiaModel.Store.PropertyFeature" Multiplicity="*" />
+          <End Role="Features" Type="Self.Features" Multiplicity="1" />
+          <End Role="PropertyFeature" Type="Self.PropertyFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Features">
               <PropertyRef Name="Id" />
@@ -355,8 +307,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyFeature_Property">
-          <End Role="Properties" Type="JewelOfIndiaModel.Store.Properties" Multiplicity="1" />
-          <End Role="PropertyFeature" Type="JewelOfIndiaModel.Store.PropertyFeature" Multiplicity="*" />
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="PropertyFeature" Type="Self.PropertyFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Properties">
               <PropertyRef Name="Id" />
@@ -367,8 +319,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tower_Property">
-          <End Role="Properties" Type="JewelOfIndiaModel.Store.Properties" Multiplicity="1" />
-          <End Role="Towers" Type="JewelOfIndiaModel.Store.Towers" Multiplicity="*" />
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="Towers" Type="Self.Towers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Properties">
               <PropertyRef Name="Id" />
@@ -379,8 +331,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TowerFeature_Feature">
-          <End Role="Features" Type="JewelOfIndiaModel.Store.Features" Multiplicity="1" />
-          <End Role="TowerFeature" Type="JewelOfIndiaModel.Store.TowerFeature" Multiplicity="*" />
+          <End Role="Features" Type="Self.Features" Multiplicity="1" />
+          <End Role="TowerFeature" Type="Self.TowerFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Features">
               <PropertyRef Name="Id" />
@@ -391,14 +343,26 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TowerFeature_Tower">
-          <End Role="Towers" Type="JewelOfIndiaModel.Store.Towers" Multiplicity="1" />
-          <End Role="TowerFeature" Type="JewelOfIndiaModel.Store.TowerFeature" Multiplicity="*" />
+          <End Role="Towers" Type="Self.Towers" Multiplicity="1" />
+          <End Role="TowerFeature" Type="Self.TowerFeature" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Towers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TowerFeature">
               <PropertyRef Name="Towers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -446,6 +410,92 @@
           <Parameter Name="IsBlocked" Type="bit" Mode="In" />
           <Parameter Name="UserId" Type="bigint" Mode="In" />
         </Function>
+        <EntityContainer Name="JewelOfIndiaModelStoreContainer">
+          <EntitySet Name="ApartmentFeature" EntityType="Self.ApartmentFeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apartments" EntityType="Self.Apartments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApartmentSalesType" EntityType="Self.ApartmentSalesType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApartmetSales" EntityType="Self.ApartmetSales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Features" EntityType="Self.Features" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeatureTypes" EntityType="Self.FeatureTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyFeature" EntityType="Self.PropertyFeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyTypes" EntityType="Self.PropertyTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TowerFeature" EntityType="Self.TowerFeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towers" EntityType="Self.Towers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visual" EntityType="Self.Visual" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Apartment_Tower" Association="Self.FK_Apartment_Tower">
+            <End Role="Towers" EntitySet="Towers" />
+            <End Role="Apartments" EntitySet="Apartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmentFeature_Apartment" Association="Self.FK_ApartmentFeature_Apartment">
+            <End Role="Apartments" EntitySet="Apartments" />
+            <End Role="ApartmentFeature" EntitySet="ApartmentFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmentFeature_Feature" Association="Self.FK_ApartmentFeature_Feature">
+            <End Role="Features" EntitySet="Features" />
+            <End Role="ApartmentFeature" EntitySet="ApartmentFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_Apartment" Association="Self.FK_ApartmetSales_Apartment">
+            <End Role="Apartments" EntitySet="Apartments" />
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_ApartmentSalesType" Association="Self.FK_ApartmetSales_ApartmentSalesType">
+            <End Role="ApartmentSalesType" EntitySet="ApartmentSalesType" />
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_ApartmetSales" Association="Self.FK_ApartmetSales_ApartmetSales">
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_ApartmetSales1" Association="Self.FK_ApartmetSales_ApartmetSales1">
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_Customer" Association="Self.FK_ApartmetSales_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feature_FeatureType" Association="Self.FK_Feature_FeatureType">
+            <End Role="FeatureTypes" EntitySet="FeatureTypes" />
+            <End Role="Features" EntitySet="Features" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_Location" Association="Self.FK_Property_Location">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Properties" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_PropertyType" Association="Self.FK_Property_PropertyType">
+            <End Role="PropertyTypes" EntitySet="PropertyTypes" />
+            <End Role="Properties" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyFeature_Feature" Association="Self.FK_PropertyFeature_Feature">
+            <End Role="Features" EntitySet="Features" />
+            <End Role="PropertyFeature" EntitySet="PropertyFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyFeature_Property" Association="Self.FK_PropertyFeature_Property">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertyFeature" EntitySet="PropertyFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tower_Property" Association="Self.FK_Tower_Property">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="Towers" EntitySet="Towers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowerFeature_Feature" Association="Self.FK_TowerFeature_Feature">
+            <End Role="Features" EntitySet="Features" />
+            <End Role="TowerFeature" EntitySet="TowerFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TowerFeature_Tower" Association="Self.FK_TowerFeature_Tower">
+            <End Role="Towers" EntitySet="Towers" />
+            <End Role="TowerFeature" EntitySet="TowerFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserType" Association="Self.FK_Users_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -555,8 +605,18 @@
             <Parameter Name="UserId" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="sp_GetApartmentSalesByUser" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentSalesByUser_Result)">
-            <Parameter Name="UserId" Mode="In" Type="Int64" />
+          <Parameter Name="UserId" Mode="In" Type="Int64" />
           </FunctionImport>
+          <EntitySet Name="ApartmentSalesTypes" EntityType="JewelOfIndiaModel.ApartmentSalesType" />
+          <EntitySet Name="UserTypes" EntityType="JewelOfIndiaModel.UserType" />
+          <AssociationSet Name="FK_ApartmetSales_ApartmentSalesType" Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType">
+            <End Role="ApartmentSalesType" EntitySet="ApartmentSalesTypes" />
+            <End Role="ApartmetSale" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserType" Association="JewelOfIndiaModel.FK_Users_UserType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -591,6 +651,8 @@
           <NavigationProperty Name="ApartmetSale1" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales" FromRole="ApartmetSale1" ToRole="ApartmetSale" />
           <NavigationProperty Name="ApartmetSales11" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" FromRole="ApartmetSale" ToRole="ApartmetSale1" />
           <NavigationProperty Name="ApartmetSale2" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" FromRole="ApartmetSale1" ToRole="ApartmetSale" />
+          <Property Name="SalesType" Type="Int16" />
+          <NavigationProperty Name="ApartmentSalesType" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType" FromRole="ApartmetSale" ToRole="ApartmentSalesType" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -900,6 +962,8 @@
           <Property Type="Boolean" Name="IsOwner" />
           <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DOB" Precision="3" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <NavigationProperty Name="UserType" Relationship="JewelOfIndiaModel.FK_Users_UserType" FromRole="User" ToRole="UserType" />
         </EntityType>
         <ComplexType Name="sp_GetApartmentSalesByUser_Result">
           <Property Type="String" Name="PropertyDesc" Nullable="true" MaxLength="500" />
@@ -907,6 +971,46 @@
           <Property Type="String" Name="ApartmentDesc" Nullable="true" MaxLength="1000" />
           <Property Type="String" Name="StartDate" Nullable="true" MaxLength="24" />
         </ComplexType>
+        <EntityType Name="ApartmentSalesType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalesType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ApartmetSales" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType" FromRole="ApartmentSalesType" ToRole="ApartmetSale" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="JewelOfIndiaModel.FK_Users_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ApartmetSales_ApartmentSalesType">
+          <End Type="JewelOfIndiaModel.ApartmentSalesType" Role="ApartmentSalesType" Multiplicity="0..1" />
+          <End Type="JewelOfIndiaModel.ApartmetSale" Role="ApartmetSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApartmentSalesType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApartmetSale">
+              <PropertyRef Name="SalesType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserType">
+          <End Type="JewelOfIndiaModel.UserType" Role="UserType" Multiplicity="0..1" />
+          <End Type="JewelOfIndiaModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -930,6 +1034,7 @@
           <EntitySetMapping Name="ApartmetSales">
             <EntityTypeMapping TypeName="JewelOfIndiaModel.ApartmetSale">
               <MappingFragment StoreEntitySet="ApartmetSales">
+                <ScalarProperty Name="SalesType" ColumnName="SalesType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ApartmentId" ColumnName="ApartmentId" />
                 <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
@@ -1160,6 +1265,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="JewelOfIndiaModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
                 <ScalarProperty Name="IsOwner" ColumnName="IsOwner" />
@@ -1184,6 +1290,22 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ApartmentSalesTypes">
+            <EntityTypeMapping TypeName="JewelOfIndiaModel.ApartmentSalesType">
+              <MappingFragment StoreEntitySet="ApartmentSalesType">
+                <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="JewelOfIndiaModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="UserTypeCode" ColumnName="UserTypeCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
