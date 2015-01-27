@@ -183,6 +183,7 @@ function displayApts(id) {
 function displayAptDetails(id) {
     $.getJSON(serviceURL + AptDetailsURL + id, function (data) {
         aptDetails = data;
+        $("#LockProp").html('Lock Property');
         $("label[for='bedroom']").text(aptDetails.BedRoom);
         $("label[for='bathroom']").text(aptDetails.Bathroom);
         $("label[for='garage']").text(aptDetails.Garage);
