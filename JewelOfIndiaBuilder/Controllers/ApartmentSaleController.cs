@@ -70,12 +70,13 @@ namespace JewelOfIndiaBuilder.Controllers
         }
         //[System.Web.Http.AcceptVerbs("GET", "POST")]
         //[System.Web.Http.HttpGet]
+
         public string GetApartmetSalesForDelete(int id, int appId)
         {
             ApartmetSale aptSale = new ApartmetSale();
             aptSale = db.ApartmetSales.FirstOrDefault(x => x.ApartmentId == appId);
             var appUser = db.Users.FirstOrDefault(user => user.Id == id);
-            if (appUser != null && (aptSale != null && (aptSale.UserId == id || appUser.IsOwner==true)))
+            if (appUser != null && (aptSale != null && (aptSale.UserId == id || appUser.IsOwner == true)))
             {
                 db.ApartmetSales.Remove(aptSale);
                 db.SaveChanges();
@@ -86,13 +87,32 @@ namespace JewelOfIndiaBuilder.Controllers
                 return "error";
             }
         }
+        //public string GetApartmetSalesForDelete(int id, int appId)
+        //{
+        //    ApartmetSale aptSale = new ApartmetSale();
+        //    aptSale = db.ApartmetSales.Where(x => x.ApartmentId == appId).Single();
+        //    if (aptSale.UserId == id)
+        //    {
+        //        db.ApartmetSales.Remove(aptSale);
+        //        db.SaveChanges();
+        //        return "success";
+        //    }
+        //    else
+        //    {
+        //        return "error";
+        //    }
+        //}
         public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
         {
             var apartments = db.Database.SqlQuery<sp_GetApartmentSalesByUser_Result>("exec sp_GetApartmentSalesByUser {0}", id).ToList<sp_GetApartmentSalesByUser_Result>();
             return apartments;
         }
 
-      
+        //public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
+        //{
+        //    var apartments = db.Database.SqlQuery<sp_GetApartmentSalesByUser_Result>("exec sp_GetApartmentSalesByUser {0}", id).ToList<sp_GetApartmentSalesByUser_Result>();
+        //    return apartments;
+        //}
         // POST api/ApartmentSale
         [ResponseType(typeof(ApartmetSale))]
         public IHttpActionResult PostApartmetSale(ApartmetSale apartmetsale)
