@@ -33,12 +33,37 @@ namespace JewelOfIndiaBuilder.Controllers
 
         public string GetApartmetSales(int userId, int apartmentId)
         {
-            ApartmetSale aptSale = new ApartmetSale();
-            aptSale.ApartmentId = apartmentId;
-            aptSale.UserId = userId;
-            aptSale.IsBlocked = true;
-            aptSale.BlockStartDate = System.DateTime.Now;
-            aptSale.BlockEndDate = System.DateTime.Now.AddDays(7);
+            bool? isOwner = false;
+
+            var firstOrDefault = db.Users.FirstOrDefault(x => x.Id == userId);
+            var salesType = db.ApartmentSalesTypes;
+            Int16 salesId = 0;
+            if (firstOrDefault.IsOwner != null)
+            {
+                isOwner =  firstOrDefault.IsOwner;
+            }
+            if (isOwner==true)
+            {
+                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "HOLD");
+                if (apartmentSalesType != null)
+                    salesId = apartmentSalesType.Id;
+            }
+            else
+            {
+                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "REQUEST FOR HOLD");
+                if (apartmentSalesType != null)
+                    salesId = apartmentSalesType.Id;
+            }
+            var aptSale = new ApartmetSale
+            {
+                ApartmentId = apartmentId,
+                UserId = userId,
+                IsBlocked = (bool) isOwner,
+                BlockStartDate = System.DateTime.Now,
+                BlockEndDate = System.DateTime.Now.AddDays(10),
+                SalesType = salesId
+                
+            };
             db.ApartmetSales.Add(aptSale);
             db.SaveChanges();
             return "success";
