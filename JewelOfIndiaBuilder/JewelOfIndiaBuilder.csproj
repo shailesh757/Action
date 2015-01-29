@@ -191,7 +191,9 @@
     <Compile Include="Models\Apartment.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ApartmentSalesType.cs" />
+    <Compile Include="Models\ApartmentSalesType.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ApartmetSale.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>

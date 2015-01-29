@@ -67,19 +67,22 @@ SET NOCOUNT ON;
 	SELECT @IsAdmin = IsOwner FROM dbo.Users WHERE id =  @UserId
 	IF @IsAdmin = 1
 	BEGIN
-		SELECT p.Description AS [PropertyDesc],T.TowerDirection AS [TowerDesc],A.Description AS [ApartmentDesc],CONVERT(VARCHAR(24),BlockStartDate,103) AS [StartDate] FROM dbo.Properties p WITH(NOLOCK) INNER JOIN dbo.Towers T ON	T.PropertyId = p.Id INNER JOIN dbo.Apartments A ON	A.TowerId = T.Id
+		SELECT p.Description AS [PropertyDesc],T.TowerDirection AS [TowerDesc],A.Description AS [ApartmentDesc],CONVERT(VARCHAR(24),BlockStartDate,103) AS [StartDate] ,
+		DATEDIFF(DAY,BlockStartDate,BlockEndDate) AS [DaysLeftForLockToExpire] FROM dbo.Properties p WITH(NOLOCK) INNER JOIN dbo.Towers T ON	T.PropertyId = p.Id INNER JOIN dbo.Apartments A ON	A.TowerId = T.Id
 		INNER JOIN dbo.ApartmetSales ON	ApartmetSales.ApartmentId = A.Id
 		WHERE ApartmetSales.IsBlocked = 1
 		
 	END
 	ELSE
 	BEGIN
-		SELECT p.Description AS [PropertyDesc],T.TowerDirection AS [TowerDesc],A.Description AS [ApartmentDesc],CONVERT(VARCHAR(24),BlockStartDate,103) AS [StartDate]  FROM dbo.Properties p WITH(NOLOCK) INNER JOIN dbo.Towers T ON	T.PropertyId = p.Id INNER JOIN dbo.Apartments A ON	A.TowerId = T.Id
+		SELECT p.Description AS [PropertyDesc],T.TowerDirection AS [TowerDesc],A.Description AS [ApartmentDesc],CONVERT(VARCHAR(24),BlockStartDate,103) AS [StartDate],
+		DATEDIFF(DAY,BlockStartDate,BlockEndDate) AS [DaysLeftForLockToExpire]  FROM dbo.Properties p WITH(NOLOCK) INNER JOIN dbo.Towers T ON	T.PropertyId = p.Id INNER JOIN dbo.Apartments A ON	A.TowerId = T.Id
 		INNER JOIN dbo.ApartmetSales ON	ApartmetSales.ApartmentId = A.Id
 		WHERE UserId = @UserId AND ApartmetSales.IsBlocked = 1
 		
 	END
 END
+
 GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO

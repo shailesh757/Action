@@ -970,6 +970,7 @@
           <Property Type="String" Name="TowerDesc" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="ApartmentDesc" Nullable="true" MaxLength="1000" />
           <Property Type="String" Name="StartDate" Nullable="true" MaxLength="24" />
+          <Property Type="Int32" Name="DaysLeftForLockToExpire" Nullable="true" />
         </ComplexType>
         <EntityType Name="ApartmentSalesType">
           <Key>
@@ -1287,6 +1288,7 @@
                 <ScalarProperty Name="TowerDesc" ColumnName="TowerDesc" />
                 <ScalarProperty Name="ApartmentDesc" ColumnName="ApartmentDesc" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DaysLeftForLockToExpire" ColumnName="DaysLeftForLockToExpire" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

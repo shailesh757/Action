@@ -17,5 +17,6 @@ namespace JewelOfIndiaBuilder.Models
         public string TowerDesc { get; set; }
         public string ApartmentDesc { get; set; }
         public string StartDate { get; set; }
+        public Int32 DaysLeftForLockToExpire { get; set; }
     }
 }
