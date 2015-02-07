@@ -221,6 +221,19 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB,UserTypeId")] User user)
         {
+            string salt = db.Users.Where(x => x.UserName == user.UserName)
+                             .Select(x => x.Salt)
+                             .Single();
+
+
+            string password = db.Users.Where(x => x.UserName == user.UserName)
+                                         .Select(x => x.Password)
+                                         .Single();
+
+
+            user.Salt = salt;
+            user.Password = password;
+
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
