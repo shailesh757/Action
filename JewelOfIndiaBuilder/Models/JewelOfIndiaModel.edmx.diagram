@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="127849c95cb2436cab617917d524f443" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="JewelOfIndiaModel.Apartment" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JewelOfIndiaModel.ApartmetSale" Width="1.5" PointX="12" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="JewelOfIndiaModel.ApartmetSale" Width="2.75" PointX="14.5" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.Customer" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.Feature" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.FeatureType" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
@@ -24,7 +24,7 @@
         <AssociationConnector Association="JewelOfIndiaModel.ApartmentFeature" ManuallyRouted="false" />
         <AssociationConnector Association="JewelOfIndiaModel.PropertyFeature" ManuallyRouted="false" />
         <AssociationConnector Association="JewelOfIndiaModel.TowerFeature" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="JewelOfIndiaModel.Visual" Width="1.5" PointX="13.875" PointY="10.75" />
+        <EntityTypeShape EntityType="JewelOfIndiaModel.Visual" Width="1.5" PointX="12.5" PointY="11.625" />
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales" />
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.User" Width="1.5" PointX="8.793933099505459" PointY="26.16896822777063" />
@@ -32,6 +32,7 @@
         <EntityTypeShape EntityType="JewelOfIndiaModel.UserType" Width="1.5" PointX="6.5" PointY="27" />
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType" />
         <AssociationConnector Association="JewelOfIndiaModel.FK_Users_UserType" />
+        <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ApartmentAdminController.cs" />
     <Compile Include="Controllers\ApartmentController.cs" />
     <Compile Include="Controllers\ApartmentSaleController.cs" />
+    <Compile Include="Controllers\ApartmetSalesAdminController.cs" />
     <Compile Include="Controllers\CustomerAdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FeatureAdminController.cs" />
@@ -405,6 +406,11 @@
     <Content Include="Views\UserAdmin\Login.cshtml" />
     <Content Include="Views\UserAdmin\ChangePassword.cshtml" />
     <Content Include="Views\UserAdmin\ForgotPassword.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\Create.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\Delete.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\Details.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\Edit.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

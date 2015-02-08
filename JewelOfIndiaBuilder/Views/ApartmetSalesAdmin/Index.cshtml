@@ -1,0 +1,81 @@
+﻿@model IEnumerable<JewelOfIndiaBuilder.Models.ApartmetSale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsBlocked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Broker_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApartmentSalesType.SalesType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsBlocked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Broker_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartment.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApartmentSalesType.SalesType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

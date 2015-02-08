@@ -45,6 +45,8 @@
           <Property Name="BlockStartDate" Type="datetime" />
           <Property Name="SalesType" Type="smallint" />
           <Property Name="BlockEndDate" Type="datetime" />
+          <Property Name="Customer Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Broker Name" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -222,30 +224,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ApartmetSales_ApartmetSales">
-          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="1" />
-          <End Role="ApartmetSales1" Type="Self.ApartmetSales" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="ApartmetSales">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApartmetSales1">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ApartmetSales_ApartmetSales1">
-          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="1" />
-          <End Role="ApartmetSales1" Type="Self.ApartmetSales" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="ApartmetSales">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApartmetSales1">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ApartmetSales_Customer">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="*" />
@@ -255,6 +233,18 @@
             </Principal>
             <Dependent Role="ApartmetSales">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApartmetSales_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ApartmetSales" Type="Self.ApartmetSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApartmetSales">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -447,16 +437,12 @@
             <End Role="ApartmentSalesType" EntitySet="ApartmentSalesType" />
             <End Role="ApartmetSales" EntitySet="ApartmetSales" />
           </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_ApartmetSales" Association="Self.FK_ApartmetSales_ApartmetSales">
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmetSales_ApartmetSales1" Association="Self.FK_ApartmetSales_ApartmetSales1">
-            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
-            <End Role="ApartmetSales1" EntitySet="ApartmetSales" />
-          </AssociationSet>
           <AssociationSet Name="FK_ApartmetSales_Customer" Association="Self.FK_ApartmetSales_Customer">
             <End Role="Customers" EntitySet="Customers" />
+            <End Role="ApartmetSales" EntitySet="ApartmetSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_Users" Association="Self.FK_ApartmetSales_Users">
+            <End Role="Users" EntitySet="Users" />
             <End Role="ApartmetSales" EntitySet="ApartmetSales" />
           </AssociationSet>
           <AssociationSet Name="FK_Feature_FeatureType" Association="Self.FK_Feature_FeatureType">
@@ -617,6 +603,10 @@
             <End Role="UserType" EntitySet="UserTypes" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_ApartmetSales_Users" Association="JewelOfIndiaModel.FK_ApartmetSales_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ApartmetSale" EntitySet="ApartmetSales" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -647,12 +637,11 @@
           <Property Name="BlockEndDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Apartment" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Apartment" FromRole="ApartmetSales" ToRole="Apartments" />
           <NavigationProperty Name="Customer" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Customer" FromRole="ApartmetSales" ToRole="Customers" />
-          <NavigationProperty Name="ApartmetSales1" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales" FromRole="ApartmetSale" ToRole="ApartmetSale1" />
-          <NavigationProperty Name="ApartmetSale1" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales" FromRole="ApartmetSale1" ToRole="ApartmetSale" />
-          <NavigationProperty Name="ApartmetSales11" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" FromRole="ApartmetSale" ToRole="ApartmetSale1" />
-          <NavigationProperty Name="ApartmetSale2" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmetSales1" FromRole="ApartmetSale1" ToRole="ApartmetSale" />
           <Property Name="SalesType" Type="Int16" />
           <NavigationProperty Name="ApartmentSalesType" Relationship="JewelOfIndiaModel.FK_ApartmetSales_ApartmentSalesType" FromRole="ApartmetSale" ToRole="ApartmentSalesType" />
+          <Property Name="Customer_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Broker_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Users" FromRole="ApartmetSale" ToRole="User" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -964,6 +953,7 @@
           <Property Type="DateTime" Name="DOB" Precision="3" />
           <Property Name="UserTypeId" Type="Int32" />
           <NavigationProperty Name="UserType" Relationship="JewelOfIndiaModel.FK_Users_UserType" FromRole="User" ToRole="UserType" />
+          <NavigationProperty Name="ApartmetSales" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Users" FromRole="User" ToRole="ApartmetSale" />
         </EntityType>
         <ComplexType Name="sp_GetApartmentSalesByUser_Result">
           <Property Type="String" Name="PropertyDesc" Nullable="true" MaxLength="500" />
@@ -1012,6 +1002,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ApartmetSales_Users">
+          <End Type="JewelOfIndiaModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="JewelOfIndiaModel.ApartmetSale" Role="ApartmetSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApartmetSale">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1035,6 +1037,8 @@
           <EntitySetMapping Name="ApartmetSales">
             <EntityTypeMapping TypeName="JewelOfIndiaModel.ApartmetSale">
               <MappingFragment StoreEntitySet="ApartmetSales">
+                <ScalarProperty Name="Broker_Name" ColumnName="Broker Name" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
                 <ScalarProperty Name="SalesType" ColumnName="SalesType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ApartmentId" ColumnName="ApartmentId" />

@@ -7,14 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class User
     {
+        public User()
+        {
+            this.ApartmetSales = new HashSet<ApartmetSale>();
+        }
+
         public long Id { get; set; }
         public string UserName { get; set; }
         //[Required(ErrorMessage = "Password can not be blank")]
@@ -33,5 +39,7 @@ namespace JewelOfIndiaBuilder.Models
         public string newPassword { get; set; }
         public Nullable<int> UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }
+       
+        public virtual ICollection<ApartmetSale> ApartmetSales { get; set; }
     }
 }

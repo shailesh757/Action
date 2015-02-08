@@ -2,11 +2,9 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -16,9 +14,8 @@
         <h4>Apartment</h4>
         <hr />
         @Html.ValidationSummary(true)
-
         <div class="form-group">
-            @Html.LabelFor(model => model.BedRoom, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BedRoom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BedRoom)
                 @Html.ValidationMessageFor(model => model.BedRoom)
@@ -26,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bathroom, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Bathroom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Bathroom)
                 @Html.ValidationMessageFor(model => model.Bathroom)
@@ -34,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Garage, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Garage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Garage)
                 @Html.ValidationMessageFor(model => model.Garage)
@@ -42,7 +39,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description)
                 @Html.ValidationMessageFor(model => model.Description)
@@ -50,7 +47,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FloorLevel, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FloorLevel, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FloorLevel)
                 @Html.ValidationMessageFor(model => model.FloorLevel)
@@ -58,7 +55,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Direction, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Direction, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Direction)
                 @Html.ValidationMessageFor(model => model.Direction)
@@ -66,7 +63,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TowerId, "TowerId", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TowerId, "TowerId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TowerId", String.Empty)
                 @Html.ValidationMessageFor(model => model.TowerId)
@@ -84,7 +81,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -48,7 +48,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
+        public ActionResult Create([Bind(Include = "Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace JewelOfIndiaBuilder.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
+        public ActionResult Edit([Bind(Include = "Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
         {
             if (ModelState.IsValid)
             {
