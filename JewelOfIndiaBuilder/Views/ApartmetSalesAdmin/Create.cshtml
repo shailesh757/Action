@@ -30,13 +30,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CustomerId, "CustomerId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerId", String.Empty)
-                @Html.ValidationMessageFor(model => model.CustomerId)
-            </div>
-        </div>
+       
 
         <div class="form-group">
             @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BlockStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BlockStartDate,"Start Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BlockStartDate)
                 @Html.ValidationMessageFor(model => model.BlockStartDate)
@@ -55,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BlockEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BlockEndDate,"End Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BlockEndDate)
                 @Html.ValidationMessageFor(model => model.BlockEndDate)
@@ -71,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Customer_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Customer_Name,"Customer Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Customer_Name)
                 @Html.ValidationMessageFor(model => model.Customer_Name)
@@ -79,7 +73,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Broker_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Broker_Name,"Broker Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Broker_Name)
                 @Html.ValidationMessageFor(model => model.Broker_Name)
