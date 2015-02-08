@@ -284,6 +284,7 @@
   <ItemGroup>
     <Content Include="App_Data\script22122014.sql" />
     <Content Include="App_Data\script23012015.sql" />
+    <Content Include="App_Data\script8022115.sql" />
     <Content Include="App_Data\SqlScript.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
