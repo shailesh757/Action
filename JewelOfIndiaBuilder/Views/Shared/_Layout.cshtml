@@ -39,10 +39,11 @@
 
                          <li>@Html.ActionLink("Property Type", "Index", "PropertyTypeAdmin", new { area = "" }, null)</li>
                        
-                          <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
-                    }
+                            <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("ChangePassword", "ChangePassword", "UserAdmin", new { area = "" }, null)</li>
+                        }
                     <li>@Html.ActionLink("Log Off", "Logoff", "UserAdmin", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("ChangePassword", "ChangePassword", "UserAdmin", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Report", "PropertyReport", "ApartmetSalesAdmin", new { area = "" }, null)</li>
                     }
                     else
                     {

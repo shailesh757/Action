@@ -21,8 +21,10 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: ApartmetSalesAdmin
         public ActionResult PropertyReport()
         {
-            var apartmetSales = db.ApartmetSales.Include(a => a.Apartment).Include(a => a.Customer).Include(a => a.ApartmentSalesType).Include(a => a.User);
-            return View(apartmetSales.ToList().Where(x => x.ApartmentSalesType.Id == 3 || x.ApartmentSalesType.Id== null));
+            var props =
+                db.Database.SqlQuery<sp_GetApartmentWithStatus_Result>("exec sp_GetApartmentWithStatus")
+                    .ToList<sp_GetApartmentWithStatus_Result>();
+            return View(props.ToList());
         }
 
         // GET: ApartmetSalesAdmin

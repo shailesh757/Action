@@ -249,6 +249,9 @@
     <Compile Include="Models\sp_GetApartments_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetApartmentWithStatus_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetProperties_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -285,6 +288,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\13022015.sql" />
     <Content Include="App_Data\script22122014.sql" />
     <Content Include="App_Data\script23012015.sql" />
     <Content Include="App_Data\script8022115.sql" />

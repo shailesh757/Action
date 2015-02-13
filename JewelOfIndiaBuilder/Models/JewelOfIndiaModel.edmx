@@ -368,6 +368,7 @@
         <Function Name="sp_GetApartmentSalesByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="sp_GetApartmentWithStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetPropertyFeature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PropertyId" Type="bigint" Mode="In" />
@@ -607,6 +608,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="ApartmetSale" EntitySet="ApartmetSales" />
           </AssociationSet>
+          <FunctionImport Name="sp_GetApartmentWithStatus" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentWithStatus_Result)" />
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -1014,6 +1016,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_GetApartmentWithStatus_Result">
+          <Property Type="Int32" Name="BedRoom" Nullable="true" />
+          <Property Type="Int32" Name="Bathroom" Nullable="true" />
+          <Property Type="Int32" Name="Garage" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="Int16" Name="FloorLevel" Nullable="true" />
+          <Property Type="Boolean" Name="IsBlocked" Nullable="true" />
+          <Property Type="DateTime" Name="BlockStartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="BlockEndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SalesType" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1312,6 +1325,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetApartmentWithStatus" FunctionName="JewelOfIndiaModel.Store.sp_GetApartmentWithStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetApartmentWithStatus_Result">
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
+                <ScalarProperty Name="Garage" ColumnName="Garage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+                <ScalarProperty Name="BlockStartDate" ColumnName="BlockStartDate" />
+                <ScalarProperty Name="BlockEndDate" ColumnName="BlockEndDate" />
+                <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

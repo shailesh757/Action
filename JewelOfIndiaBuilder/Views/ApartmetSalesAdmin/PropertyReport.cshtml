@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JewelOfIndiaBuilder.Models.ApartmetSale>
+﻿@model IEnumerable<JewelOfIndiaBuilder.Models.sp_GetApartmentWithStatus_Result>
 
 @{
     ViewBag.Title = "Index";
@@ -9,7 +9,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IsBlocked)
+            Blocked
         </th>
         <th>
             Start Date
@@ -18,20 +18,24 @@
             End Date
         </th>
         <th>
-            Customer Name
+            BedRoom
         </th>
         <th>
-            Broker Name
+            BathRoom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apartment.Description)
+            Garage
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApartmentSalesType.SalesType)
+            Floor Level
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
+        <th>
+            Sales Type
+        </th>
+        
         <th></th>
     </tr>
 
@@ -48,20 +52,24 @@
                 @Html.DisplayFor(modelItem => item.BlockEndDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer_Name)
+                @Html.DisplayFor(modelItem => item.BedRoom)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Broker_Name)
+                @Html.DisplayFor(modelItem => item.Bathroom)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Apartment.Description)
+                @Html.DisplayFor(modelItem => item.Garage)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ApartmentSalesType.SalesType)
+                @Html.DisplayFor(modelItem => item.FloorLevel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserName)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesType)
+            </td>
+           
             
         </tr>
     }

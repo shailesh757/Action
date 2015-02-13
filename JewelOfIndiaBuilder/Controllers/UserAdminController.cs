@@ -22,7 +22,7 @@ namespace JewelOfIndiaBuilder.Controllers
             {
                 return RedirectToAction("../Home");
             }
-            return View(db.Users.ToList());
+            return View(db.Users.ToList());//
         }
 
         public ViewResult Login()
@@ -32,6 +32,8 @@ namespace JewelOfIndiaBuilder.Controllers
 
         public ViewResult ChangePassword()
         {
+            //var user = db.Users.FirstOrDefault(x => x.UserName == Session["UserName"].ToString());
+
             return View();
         }
 
@@ -75,31 +77,6 @@ namespace JewelOfIndiaBuilder.Controllers
             {
                 return RedirectToAction("ChangePassword");
             }
-
-            //var salt = GetSaltForUserFromDatabase(username);
-            //var hashedPassword = GetHashedPasswordForUserFromDatabase(username);
-            //var saltedPassword = password + salt;
-
-            string salt = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.Salt)
-                                         .Single();
-
-
-            string password = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.Password)
-                                         .Single();
-
-            bool? isAdmin = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.IsOwner).Single();
-
-
-            bool passwordMatches = System.Web.Helpers.Crypto.VerifyHashedPassword(password, user.Password + salt);
-
-            if (!passwordMatches)
-            {
-                return RedirectToAction("ChangePassword");
-            }
-
            
 
             var userToUpdate= db.Users.FirstOrDefault(x => x.UserName == user.UserName);
@@ -154,6 +131,7 @@ namespace JewelOfIndiaBuilder.Controllers
             Session["AuthID"] = authId;
             Session["IsAdmin"] = isAdmin;
             Session["UserType"] = validUser.UserType.UserTypeCode;
+            Session["UserName"] = validUser.UserName;
 
             return RedirectToAction("../Home");
         }
