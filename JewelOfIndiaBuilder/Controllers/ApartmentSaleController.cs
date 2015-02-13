@@ -66,6 +66,8 @@ namespace JewelOfIndiaBuilder.Controllers
             };
             db.ApartmetSales.Add(aptSale);
             db.SaveChanges();
+            var apartment = db.Apartments.FirstOrDefault(x => x.Id == apartmentId);
+            //Smtp.SendMail(apartment.Description);
             return "success";
         }
         //[System.Web.Http.AcceptVerbs("GET", "POST")]

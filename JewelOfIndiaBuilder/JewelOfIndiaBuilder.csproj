@@ -179,6 +179,7 @@
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\PropertyTypeAdminController.cs" />
     <Compile Include="Controllers\PropertyTypeController.cs" />
+    <Compile Include="Controllers\Smtp.cs" />
     <Compile Include="Controllers\TowerAdminController.cs" />
     <Compile Include="Controllers\TowerController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
