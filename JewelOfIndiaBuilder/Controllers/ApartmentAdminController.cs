@@ -15,8 +15,15 @@ namespace JewelOfIndiaBuilder.Controllers
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
         // GET: /ApartmentAdmin/
+        public bool Redirect()
+        {
+            return !ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "APARTMENT");
+        }
+
         public ActionResult Index()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             var apartments = db.Apartments.Include(a => a.Tower);
             return View(apartments.ToList());
         }
@@ -24,6 +31,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /ApartmentAdmin/Details/5
         public ActionResult Details(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +48,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /ApartmentAdmin/Create
         public ActionResult Create()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             ViewBag.TowerId = new SelectList(db.Towers, "Id", "TowerName");
             return View();
         }
@@ -50,6 +61,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Apartments.Add(apartment);
@@ -64,6 +77,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /ApartmentAdmin/Edit/5
         public ActionResult Edit(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +99,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,BedRoom,Bathroom,Garage,Description,FloorLevel,Direction,TowerId")] Apartment apartment)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Entry(apartment).State = System.Data.Entity.EntityState.Modified;
@@ -97,6 +114,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /ApartmentAdmin/Delete/5
         public ActionResult Delete(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +133,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             Apartment apartment = db.Apartments.Find(id);
             db.Apartments.Remove(apartment);
             db.SaveChanges();

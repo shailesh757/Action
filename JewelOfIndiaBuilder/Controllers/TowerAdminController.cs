@@ -16,9 +16,14 @@ namespace JewelOfIndiaBuilder.Controllers
 
       
         // GET: /TowerAdmin/
-        
+        public bool Redirect()
+        {
+            return !ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "TOWER");
+        }
         public ActionResult Index()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             var towers = db.Towers.Include(t => t.Property);
             return View(towers.ToList());
         }
@@ -26,6 +31,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /TowerAdmin/Details/5
         public ActionResult Details(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +48,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /TowerAdmin/Create
         public ActionResult Create()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Feature");
             return View();
         }
@@ -52,6 +61,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,PropertyId,TowerName,TowerDirection,Description")] Tower tower)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Towers.Add(tower);
@@ -66,6 +77,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /TowerAdmin/Edit/5
         public ActionResult Edit(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -86,6 +99,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,PropertyId,TowerName,TowerDirection,Description")] Tower tower)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Entry(tower).State = System.Data.Entity.EntityState.Modified;
@@ -99,6 +114,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /TowerAdmin/Delete/5
         public ActionResult Delete(long? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,6 +133,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             Tower tower = db.Towers.Find(id);
             db.Towers.Remove(tower);
             db.SaveChanges();

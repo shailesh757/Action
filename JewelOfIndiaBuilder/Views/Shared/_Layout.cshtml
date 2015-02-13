@@ -25,22 +25,22 @@
                 <ul class="nav navbar-nav">
                     @if  (Session["AuthID"] != null)
                     {
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    
-                    <li>@Html.ActionLink("Property", "Index", "PropertyAdmin", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Tower", "Index", "TowerAdmin", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Apartment", "Index", "ApartmentAdmin", new { area = "" }, null)</li>
-                   
-                    <li>@Html.ActionLink("Location", "Index", "LocationAdmin", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("ApartmetSale", "Index", "ApartmetSalesAdmin", new { area = "" }, null)</li>
-                        @* <li>@Html.ActionLink("Customer", "Index", "CustomerAdmin", new { area = "" }, null)</li>
-    <li>@Html.ActionLink("Feature", "Index", "FeatureAdmin", new { area = "" }, null)</li>
-    <li>@Html.ActionLink("Feature Type", "Index", "FeatureTypeAdmin", new { area = "" }, null)</li>*@
-                    <li>@Html.ActionLink("Property Type", "Index", "PropertyTypeAdmin", new { area = "" }, null)</li>
-                        if (Session["IsAdmin"].ToString() == "True")
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        if (Session["UserType"].ToString().ToUpper() == "ADMIN" || Session["UserType"].ToString().ToUpper() == "SUBADMIN")
                         {
-                            <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
-                        }
+                        <li>@Html.ActionLink("Property", "Index", "PropertyAdmin", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Tower", "Index", "TowerAdmin", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Apartment", "Index", "ApartmentAdmin", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Location", "Index", "LocationAdmin", new { area = "" }, null)</li>
+                            if (Session["UserType"].ToString().ToUpper() == "ADMIN")
+                            {
+                                <li>@Html.ActionLink("ApartmetSale", "Index", "ApartmetSalesAdmin", new {area = ""}, null)</li>
+                            }
+
+                         <li>@Html.ActionLink("Property Type", "Index", "PropertyTypeAdmin", new { area = "" }, null)</li>
+                       
+                          <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
+                    }
                     <li>@Html.ActionLink("Log Off", "Logoff", "UserAdmin", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("ChangePassword", "ChangePassword", "UserAdmin", new { area = "" }, null)</li>
                     }

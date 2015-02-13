@@ -1,0 +1,70 @@
+﻿@model IEnumerable<JewelOfIndiaBuilder.Models.ApartmetSale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsBlocked)
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+        <th>
+            Customer Name
+        </th>
+        <th>
+            Broker Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApartmentSalesType.SalesType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBlocked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlockStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlockEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Broker_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartment.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentSalesType.SalesType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+

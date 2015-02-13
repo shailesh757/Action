@@ -14,15 +14,23 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
+        public bool Redirect()
+        {
+            return !ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "LOCATION");
+        }
         // GET: /LocationAdmin/
         public ActionResult Index()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             return View(db.Locations.ToList());
         }
 
         // GET: /LocationAdmin/Details/5
         public ActionResult Details(int? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +46,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /LocationAdmin/Create
         public ActionResult Create()
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             return View();
         }
 
@@ -48,6 +58,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,Address,ZipCode,state,Country,Latitude,Longitude")] Location location)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Locations.Add(location);
@@ -61,6 +73,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /LocationAdmin/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +94,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,Address,ZipCode,state,Country,Latitude,Longitude")] Location location)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (ModelState.IsValid)
             {
                 db.Entry(location).State = System.Data.Entity.EntityState.Modified;
@@ -92,6 +108,8 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /LocationAdmin/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +127,8 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Redirect())
+                return RedirectToAction("../Home");
             Location location = db.Locations.Find(id);
             db.Locations.Remove(location);
             db.SaveChanges();

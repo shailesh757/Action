@@ -18,6 +18,10 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /UserAdmin/
         public ActionResult Index()
         {
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "USER"))
+            {
+                return RedirectToAction("../Home");
+            }
             return View(db.Users.ToList());
         }
 
@@ -30,6 +34,8 @@ namespace JewelOfIndiaBuilder.Controllers
         {
             return View();
         }
+
+        
         public ViewResult ForgotPassword()
         {
             return View();
@@ -125,17 +131,15 @@ namespace JewelOfIndiaBuilder.Controllers
             //var hashedPassword = GetHashedPasswordForUserFromDatabase(username);
             //var saltedPassword = password + salt;
 
-            string salt = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.Salt)
-                                         .Single();
+            var validUser = db.Users.FirstOrDefault(x => x.UserName == user.UserName);
+
+            string salt = validUser.Salt;
 
 
-            string password = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.Password)
-                                         .Single();
+            string password = validUser.Password;
 
-            bool? isAdmin = db.Users.Where(x => x.UserName == user.UserName)
-                                         .Select(x => x.IsOwner).Single();
+            bool? isAdmin = validUser.IsOwner;
+
 
 
             bool passwordMatches = System.Web.Helpers.Crypto.VerifyHashedPassword(password, user.Password + salt);
@@ -149,6 +153,7 @@ namespace JewelOfIndiaBuilder.Controllers
 
             Session["AuthID"] = authId;
             Session["IsAdmin"] = isAdmin;
+            Session["UserType"] = validUser.UserType.UserTypeCode;
 
             return RedirectToAction("../Home");
         }
@@ -182,6 +187,11 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB,UserTypeId")] User user)
         {
+
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "USER"))
+            {
+                return RedirectToAction("../Home");
+            }
             if (ModelState.IsValid)
             {
                 var salt = System.Web.Helpers.Crypto.GenerateSalt();
@@ -201,6 +211,10 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /UserAdmin/Edit/5
         public ActionResult Edit(long? id)
         {
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "USER"))
+            {
+                return RedirectToAction("../Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -221,6 +235,10 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,UserName,Password,Salt,Question,Answer,EmailId,IsOwner,MobileNo,DOB,UserTypeId")] User user)
         {
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "USER"))
+            {
+                return RedirectToAction("../Home");
+            }
             string salt = db.Users.Where(x => x.UserName == user.UserName)
                              .Select(x => x.Salt)
                              .Single();
@@ -247,6 +265,10 @@ namespace JewelOfIndiaBuilder.Controllers
         // GET: /UserAdmin/Delete/5
         public ActionResult Delete(long? id)
         {
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), "USER"))
+            {
+                return RedirectToAction("../Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -264,6 +286,10 @@ namespace JewelOfIndiaBuilder.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            if (!ApplicationSecurity.CheckUser(Session["UserType"].ToString(), Session["IsAdmin"].ToString(), Session["UserType"].ToString()))
+            {
+                return RedirectToAction("../Home");
+            }
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();

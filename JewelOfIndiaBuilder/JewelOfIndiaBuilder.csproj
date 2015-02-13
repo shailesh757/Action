@@ -162,7 +162,10 @@
     <Compile Include="Controllers\ApartmentAdminController.cs" />
     <Compile Include="Controllers\ApartmentController.cs" />
     <Compile Include="Controllers\ApartmentSaleController.cs" />
-    <Compile Include="Controllers\ApartmetSalesAdminController.cs" />
+    <Compile Include="Controllers\ApartmetSalesAdminController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ApplicationSecurity.cs" />
     <Compile Include="Controllers\CustomerAdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FeatureAdminController.cs" />
@@ -412,6 +415,7 @@
     <Content Include="Views\ApartmetSalesAdmin\Details.cshtml" />
     <Content Include="Views\ApartmetSalesAdmin\Edit.cshtml" />
     <Content Include="Views\ApartmetSalesAdmin\Index.cshtml" />
+    <Content Include="Views\ApartmetSalesAdmin\PropertyReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
