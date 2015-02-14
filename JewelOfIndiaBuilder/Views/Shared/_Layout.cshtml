@@ -34,13 +34,13 @@
                         <li>@Html.ActionLink("Location", "Index", "LocationAdmin", new { area = "" }, null)</li>
                             if (Session["UserType"].ToString().ToUpper() == "ADMIN")
                             {
-                                <li>@Html.ActionLink("ApartmetSale", "Index", "ApartmetSalesAdmin", new {area = ""}, null)</li>
+                                <li>@Html.ActionLink("Apartmet Sale", "Index", "ApartmetSalesAdmin", new {area = ""}, null)</li>
                             }
 
                          <li>@Html.ActionLink("Property Type", "Index", "PropertyTypeAdmin", new { area = "" }, null)</li>
                        
                             <li>@Html.ActionLink("User", "Index", "UserAdmin", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("ChangePassword", "ChangePassword", "UserAdmin", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("Change Password", "ChangePassword", "UserAdmin", new { area = "" }, null)</li>
                         }
                     <li>@Html.ActionLink("Log Off", "Logoff", "UserAdmin", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Report", "PropertyReport", "ApartmetSalesAdmin", new { area = "" }, null)</li>

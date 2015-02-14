@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace JewelOfIndiaBuilder.Models
 {
     using System;
@@ -19,7 +21,11 @@ namespace JewelOfIndiaBuilder.Models
         public bool IsBlocked { get; set; }
         public Nullable<long> CustomerId { get; set; }
         public Nullable<long> UserId { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+               ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> BlockStartDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+               ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> BlockEndDate { get; set; }
         public Nullable<short> SalesType { get; set; }
         public string Customer_Name { get; set; }

@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SalesType, "SalesType", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SalesType, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SalesType", String.Empty)
                 @Html.ValidationMessageFor(model => model.SalesType)
@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Customer_Name, "Customer Name",htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Customer_Name, "Customer",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Customer_Name)
                 @Html.ValidationMessageFor(model => model.Customer_Name)
@@ -73,7 +73,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Broker_Name, "Broker Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Broker_Name, "Broker", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Broker_Name)
                 @Html.ValidationMessageFor(model => model.Broker_Name)
