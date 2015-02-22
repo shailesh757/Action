@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -91,16 +93,38 @@ namespace JewelOfIndiaBuilder.Controllers
 
                     HttpPostedFileBase photo = Request.Files[i];
 
-                    if (photo.ContentLength != 0)
+                    if (photo != null && photo.ContentLength != 0)
                     {
-                        photo.SaveAs(Server.MapPath(path) + photo.FileName);
-                        Visual v = new Visual();
-                        v.DisplayName = photo.FileName;
-                        v.Name = Guid.NewGuid().ToString() + photo.FileName.Substring(photo.FileName.IndexOf('.'),4);
-                        v.Type = typevalue;
-                        v.TypeId = Convert.ToInt32(id);
+                        var file = Guid.NewGuid() + photo.FileName.Substring(photo.FileName.IndexOf('.'), 4);
+                        var fileName = Path.Combine(Server.MapPath(path),file); 
+                        photo.SaveAs(fileName);
+                        var v = new Visual
+                        {
+                            DisplayName = photo.FileName,
+                            Name = fileName,
+                            Type = typevalue,
+                            TypeId = Convert.ToInt64(id)
+                        };
                         db.Visuals.Add(v);
-                        db.SaveChanges();
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch (DbEntityValidationException e)
+                        {
+                            foreach (var eve in e.EntityValidationErrors)
+                            {
+                                Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                    eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                                foreach (var ve in eve.ValidationErrors)
+                                {
+                                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                        ve.PropertyName, ve.ErrorMessage);
+                                }
+                            }
+                            throw;
+                        }
+                       
                     }
 
 

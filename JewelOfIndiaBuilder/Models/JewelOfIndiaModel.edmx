@@ -43,8 +43,8 @@
           <Property Name="CustomerId" Type="bigint" />
           <Property Name="UserId" Type="bigint" />
           <Property Name="BlockStartDate" Type="datetime" />
-          <Property Name="SalesType" Type="smallint" />
           <Property Name="BlockEndDate" Type="datetime" />
+          <Property Name="SalesType" Type="smallint" />
           <Property Name="Customer Name" Type="nvarchar" MaxLength="500" />
           <Property Name="Broker Name" Type="nvarchar" MaxLength="500" />
         </EntityType>
@@ -159,8 +159,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="TypeId" Type="bigint" Nullable="false" />
         </EntityType>
@@ -828,8 +828,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Type" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Type="Int64" Name="TypeId" Nullable="false" />
         </EntityType>
