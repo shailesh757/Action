@@ -21,16 +21,13 @@
             BedRoom
         </th>
         <th>
-            BathRoom
-        </th>
-        <th>
-            Garage
-        </th>
-        <th>
             Floor Level
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
         </th>
         <th>
             Status
@@ -54,17 +51,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BedRoom)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bathroom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Garage)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.FloorLevel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SalesType)

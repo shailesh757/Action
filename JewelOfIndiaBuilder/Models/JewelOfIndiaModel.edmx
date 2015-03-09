@@ -23,8 +23,9 @@
           <Property Name="Garage" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="FloorLevel" Type="smallint" />
-          <Property Name="Direction" Type="varchar(max)" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
           <Property Name="TowerId" Type="bigint" />
+          <Property Name="Area" Type="bigint" />
         </EntityType>
         <EntityType Name="ApartmentSalesType">
           <Key>
@@ -620,11 +621,12 @@
           <Property Name="Garage" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
           <Property Name="FloorLevel" Type="Int16" />
-          <Property Name="Direction" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="TowerId" Type="Int64" />
           <NavigationProperty Name="Tower" Relationship="JewelOfIndiaModel.FK_Apartment_Tower" FromRole="Apartments" ToRole="Towers" />
           <NavigationProperty Name="ApartmetSales" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Apartment" FromRole="Apartments" ToRole="ApartmetSales" />
           <NavigationProperty Name="Features" Relationship="JewelOfIndiaModel.ApartmentFeature" FromRole="Apartments" ToRole="Features" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="Int64" />
         </EntityType>
         <EntityType Name="ApartmetSale">
           <Key>
@@ -1036,13 +1038,14 @@
           <EntitySetMapping Name="Apartments">
             <EntityTypeMapping TypeName="JewelOfIndiaModel.Apartment">
               <MappingFragment StoreEntitySet="Apartments">
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
                 <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
                 <ScalarProperty Name="Garage" ColumnName="Garage" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
-                <ScalarProperty Name="Direction" ColumnName="Direction" />
                 <ScalarProperty Name="TowerId" ColumnName="TowerId" />
               </MappingFragment>
             </EntityTypeMapping>

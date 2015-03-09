@@ -26,8 +26,9 @@ namespace JewelOfIndiaBuilder.Models
         public Nullable<int> Garage { get; set; }
         public string Description { get; set; }
         public Nullable<short> FloorLevel { get; set; }
-        public string Direction { get; set; }
         public Nullable<long> TowerId { get; set; }
+        public string Address { get; set; }
+        public Nullable<long> Area { get; set; }
     
         public virtual Tower Tower { get; set; }
         public virtual ICollection<ApartmetSale> ApartmetSales { get; set; }

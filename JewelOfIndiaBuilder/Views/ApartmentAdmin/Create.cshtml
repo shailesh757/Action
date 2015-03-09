@@ -55,10 +55,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Direction, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Direction)
-                @Html.ValidationMessageFor(model => model.Direction)
+                @Html.EditorFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Area)
+                @Html.ValidationMessageFor(model => model.Area)
             </div>
         </div>
 
