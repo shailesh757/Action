@@ -162,34 +162,31 @@ function displayApts(id) {
         apartments = data;
         $.each(apartments, function (index, apartment) {
             $('#apartmentlist').append('<li id = "' + apartment.Id + '"><img height="50px" width="50px" src = "' + imageURL + apartment.imageDisplayName + '"/>' +
-					'<h3>' + apartment.Description + '</h3>' +
-					'<p>' + 'Direction - ' + apartment.Direction + ' Bedroom - ' + apartment.BedRoom + ' Bathroom - ' + apartment.Bathroom + '</p>' +
-					'</li>'); //'<span class="ui-li-count">' + apartment.Id + '</span></a></li>');
+     '<h3>' + apartment.Description + '</h3>' +
+     '<p>' + 'Address - ' + apartment.Address + ' Area - ' + apartment.Area + ' Bedroom - ' + apartment.BedRoom + ' Bathroom - ' + apartment.Bathroom + '</p>' +
+     '</li>');
         });
         $('#apartmentlist').refresh;
         hideAll();
         $(".aptcontent").show();
-
     }).done(function () {
     })
-		.fail(function () {
-		    console.log("error");
-		})
-		.always(function () {
-		    console.log("complete");
-		});
+  .fail(function () {
+      console.log("error");
+  })
+  .always(function () {
+      console.log("complete");
+  });
 }
-
 function displayAptDetails(id) {
     $.getJSON(serviceURL + AptDetailsURL + id, function (data) {
         aptDetails = data;
-        $("#LockProp").html('Lock Property');
         $("label[for='bedroom']").text(aptDetails.BedRoom);
         $("label[for='bathroom']").text(aptDetails.Bathroom);
         $("label[for='garage']").text(aptDetails.Garage);
         $("label[for='floorlevel']").text(aptDetails.FloorLevel);
-        $("label[for='desc']").text(aptDetails.Description);
-        $("label[for='location']").text(aptDetails.Direction);
+        $("label[for='desc']").text(aptDetails.description);
+        $("label[for='location']").text(aptDetails.Address);
         $("#LockProp").attr('itemid', aptDetails.Id);
         if (aptDetails.IsBlocked) {
             if (isAdmin) {
@@ -201,14 +198,13 @@ function displayAptDetails(id) {
         $(".AptDetail").show();
     }).done(function () {
     })
-		.fail(function () {
-		    console.log("error");
-		})
-		.always(function () {
-		    console.log("complete");
-		});
+  .fail(function () {
+      console.log("error");
+  })
+  .always(function () {
+      console.log("complete");
+  });
 }
-
 
 function displayAptImages(id) {
     var strImg = '';
@@ -242,7 +238,7 @@ function lockProperty(id) {
 
     $.getJSON(serviceURL + AptSaleURL.replace("{userId}", userId).replace("{apartmentId}", id), function (data) {
         if (data == "success") {
-            alert("Property Locked")
+            alert("The Property has been sent for approval")
             if (isAdmin) {
                 $("#LockProp").html('Unlock Property');
             }
@@ -285,6 +281,7 @@ function unlockProperty(id) {
 		});
 }
 
+
 function displayLockProperties(id) {
     $.getJSON(serviceURL + LockPropURL + id, function (data) {
         $('#lockproplist li').remove();
@@ -292,8 +289,9 @@ function displayLockProperties(id) {
         $.each(apartments, function (index, apartment) {
             $('#lockproplist').append('<li>' +
 					'<h3>' + apartment.ApartmentDesc + '</h3>' +
-					'<p>' + 'Tower - ' + apartment.TowerDesc + '<br>' + ' Property - ' + apartment.PropertyDesc  + '<br>' + ' Lock Start Date - ' + apartment.StartDate +
-					'</li>'); //'<span class="ui-li-count">' + apartment.Id + '</span></a></li>');
+					'<p>' + 'Tower - ' + apartment.TowerDesc + '<br>' + ' Property - ' + apartment.PropertyDesc + '<br>'
+                    + ' Lock Start Date - ' + apartment.StartDate + '<br>' + 'Lock to Expire in ' + apartment.DaysLeftForLockToExpire + ' Days' +
+					'</li>');
         });
         $('#lockproplist').refresh;
         hideAll();
@@ -389,6 +387,12 @@ function hideAll() {
     $(".UserProfile").hide();
     $(".lockpropcontent").hide();
 }
+
+window.addEventListener('click', function (event) {
+    //alert('click fired!');
+
+    
+});
 
 $("#signIn").click(function () {
     var Uname = $("#userName").val();
