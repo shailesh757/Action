@@ -20,7 +20,7 @@ namespace JewelOfIndiaBuilder.Models
         public string Description { get; set; }
         public string Address { get; set; }
         public Nullable<short> FloorLevel { get; set; }
-        public Nullable<long> Area { get; set; }
+        public string Area { get; set; }
         public Nullable<long> TowerId { get; set; }
         public string imagePath{ get; set; }
         public string imageDisplayName { get; set; }

@@ -18,7 +18,7 @@ namespace JewelOfIndiaBuilder.Models
         public Nullable<int> BedRoom { get; set; }
         public Nullable<int> Bathroom { get; set; }
         public Nullable<int> Garage { get; set; }
-        public Nullable<long> Area { get; set; }
+        public string Area { get; set; }
         public string Address { get; set; }
         public Nullable<short> FloorLevel { get; set; }
         public Nullable<bool> IsBlocked { get; set; }
