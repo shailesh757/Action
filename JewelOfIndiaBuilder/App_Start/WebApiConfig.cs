@@ -44,6 +44,11 @@ namespace JewelOfIndiaBuilder
                name: "apartmentSaleDeleteApi",
                routeTemplate: "apartmentSaleDeleteApi/{controller}/{id}/{appId}"
            );
+            config.Routes.MapHttpRoute(
+               name: "getApartmentSaleApi",
+               routeTemplate: "getApartmentSaleApi/{controller}/{userid}/{salesType}",
+               defaults: new { userid = RouteParameter.Optional, salesType = RouteParameter.Optional }
+           );
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);

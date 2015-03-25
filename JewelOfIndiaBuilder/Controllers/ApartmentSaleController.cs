@@ -35,30 +35,17 @@ namespace JewelOfIndiaBuilder.Controllers
         {
             bool? isOwner = false;
 
-            var firstOrDefault = db.Users.FirstOrDefault(x => x.Id == userId);
             var salesType = db.ApartmentSalesTypes;
-            Int16 salesId = 0;
-            if (firstOrDefault.IsOwner != null)
-            {
-                isOwner =  firstOrDefault.IsOwner;
-            }
-            if (isOwner==true)
-            {
-                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "HOLD");
-                if (apartmentSalesType != null)
-                    salesId = apartmentSalesType.Id;
-            }
-            else
-            {
-                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "REQUEST FOR HOLD");
-                if (apartmentSalesType != null)
-                    salesId = apartmentSalesType.Id;
-            }
+            Int16 salesId = 1;
+           
+            var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "HOLD");
+            if (apartmentSalesType != null)
+               salesId = apartmentSalesType.Id;
             var aptSale = new ApartmetSale
             {
                 ApartmentId = apartmentId,
                 UserId = userId,
-                IsBlocked = (bool) isOwner,
+                IsBlocked = true,
                 BlockStartDate = System.DateTime.Now,
                 BlockEndDate = System.DateTime.Now.AddDays(10),
                 SalesType = salesId
@@ -115,6 +102,12 @@ namespace JewelOfIndiaBuilder.Controllers
         public List<sp_GetApartmentSalesByUser_Result> GetApartmentSalesByUser(long id)
         {
             var apartments = db.Database.SqlQuery<sp_GetApartmentSalesByUser_Result>("exec sp_GetApartmentSalesByUser {0}", id).ToList<sp_GetApartmentSalesByUser_Result>();
+            return apartments;
+        }
+
+        public List<sp_GetApartmentSalesDetail_Result> GetApartmentSalesByUserType(long userId, string salesType)
+        {
+            var apartments = db.Database.SqlQuery<sp_GetApartmentSalesDetail_Result>("exec sp_GetApartmentSalesDetail @UserId={0},@SalesType={1}", userId, salesType).ToList<sp_GetApartmentSalesDetail_Result>();
             return apartments;
         }
 

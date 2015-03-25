@@ -369,6 +369,10 @@
         <Function Name="sp_GetApartmentSalesByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="sp_GetApartmentSalesDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+          <Parameter Name="SalesType" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_GetApartmentWithStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetPropertyFeature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -610,6 +614,10 @@
             <End Role="ApartmetSale" EntitySet="ApartmetSales" />
           </AssociationSet>
           <FunctionImport Name="sp_GetApartmentWithStatus" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentWithStatus_Result)" />
+          <FunctionImport Name="sp_GetApartmentSalesDetail" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentSalesDetail_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int64" />
+            <Parameter Name="SalesType" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -626,7 +634,7 @@
           <NavigationProperty Name="ApartmetSales" Relationship="JewelOfIndiaModel.FK_ApartmetSales_Apartment" FromRole="Apartments" ToRole="ApartmetSales" />
           <NavigationProperty Name="Features" Relationship="JewelOfIndiaModel.ApartmentFeature" FromRole="Apartments" ToRole="Features" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Area" Type="String" Nullable="false" />
+          <Property Name="Area" Type="String" Unicode="false" FixedLength="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="ApartmetSale">
           <Key>
@@ -1029,6 +1037,17 @@
           <Property Type="DateTime" Name="BlockEndDate" Nullable="true" Precision="23" />
           <Property Type="String" Name="SalesType" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="sp_GetApartmentSalesDetail_Result">
+          <Property Type="String" Name="PropertyDesc" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TowerDesc" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApartmentDesc" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="BedRoom" Nullable="true" />
+          <Property Type="Int16" Name="FloorLevel" Nullable="true" />
+          <Property Type="String" Name="Area" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="24" />
+          <Property Type="Int32" Name="DaysLeftForLockToExpire" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1340,6 +1359,21 @@
                 <ScalarProperty Name="BlockStartDate" ColumnName="BlockStartDate" />
                 <ScalarProperty Name="BlockEndDate" ColumnName="BlockEndDate" />
                 <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetApartmentSalesDetail" FunctionName="JewelOfIndiaModel.Store.sp_GetApartmentSalesDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetApartmentSalesDetail_Result">
+                <ScalarProperty Name="PropertyDesc" ColumnName="PropertyDesc" />
+                <ScalarProperty Name="TowerDesc" ColumnName="TowerDesc" />
+                <ScalarProperty Name="ApartmentDesc" ColumnName="ApartmentDesc" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DaysLeftForLockToExpire" ColumnName="DaysLeftForLockToExpire" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
