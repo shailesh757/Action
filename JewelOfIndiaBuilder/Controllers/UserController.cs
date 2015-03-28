@@ -17,6 +17,13 @@ namespace JewelOfIndiaBuilder.Controllers
     {
         private JewelOfIndiaEntities db = new JewelOfIndiaEntities();
 
+        public IEnumerable<sp_GetAllUser_Result> GetAllUser()
+        {
+            var results = db.Database.SqlQuery<sp_GetAllUser_Result>("exec sp_GetAllUser").ToList<sp_GetAllUser_Result>();
+
+            return results;
+        }
+
         public User GetUser(string userName, string password)
         {
             string salt = db.Users.Where(x => x.UserName == userName)
@@ -41,10 +48,10 @@ namespace JewelOfIndiaBuilder.Controllers
         }
 
         // GET api/User
-        public IQueryable<User> GetUsers()
-        {
-            return db.Users;
-        }
+        //public IQueryable<User> GetUsers()
+        //{
+       //     return db.Users;
+       // }
 
         /* // GET api/User/5
          [ResponseType(typeof(User))]

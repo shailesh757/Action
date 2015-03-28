@@ -13,12 +13,13 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class User
     {
         public User()
         {
             this.ApartmetSales = new HashSet<ApartmetSale>();
+            this.Messages = new HashSet<Message>();
         }
 
         public long Id { get; set; }
@@ -39,7 +40,8 @@ namespace JewelOfIndiaBuilder.Models
         public string newPassword { get; set; }
         public Nullable<int> UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }
-       
+
         public virtual ICollection<ApartmetSale> ApartmetSales { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
     }
 }

@@ -32,6 +32,13 @@ namespace JewelOfIndiaBuilder.Controllers
         //    return apartmentSale;
         //}
 
+        public IEnumerable<sp_GetApartmentForApproval_Result> GetApprovedApartment()
+        {
+            var results = db.Database.SqlQuery<sp_GetApartmentForApproval_Result>("exec sp_GetApartmentForApproval").ToList<sp_GetApartmentForApproval_Result>();
+            
+            return results;
+        }
+
         public string GetApartmetSales(int userId, int apartmentId)
         {
             bool? isOwner = false;
@@ -97,7 +104,15 @@ namespace JewelOfIndiaBuilder.Controllers
                 }
                 else
                 {
-                    aptSale.SalesType = 2;
+                    if (aptSale.SalesType==1)
+                    {
+                        aptSale.SalesType = 2;  
+                    }
+                    else
+                    {
+                        aptSale.SalesType = 3;
+                    }
+                    
                     //db.Entry(aptSale).State=System.Data.Entity.EntityState.Modified;
                     db.ApartmetSales.AddOrUpdate(aptSale);
                     db.SaveChanges();
