@@ -42,7 +42,7 @@ namespace JewelOfIndiaBuilder
            );
             config.Routes.MapHttpRoute(
                name: "apartmentSaleDeleteApi",
-               routeTemplate: "apartmentSaleDeleteApi/{controller}/{id}/{appId}"
+               routeTemplate: "apartmentSaleDeleteApi/{controller}/{id}/{appId}/{confirm}"
            );
             config.Routes.MapHttpRoute(
                name: "getApartmentSaleApi",

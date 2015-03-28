@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -35,22 +36,36 @@ namespace JewelOfIndiaBuilder.Controllers
         {
             bool? isOwner = false;
 
+            var firstOrDefault = db.Users.FirstOrDefault(x => x.Id == userId);
             var salesType = db.ApartmentSalesTypes;
-            Int16 salesId = 1;
-           
-            var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "HOLD");
-            if (apartmentSalesType != null)
-               salesId = apartmentSalesType.Id;
-            var aptSale = new ApartmetSale
+            Int16 salesId = 0;
+            var aptSale = new ApartmetSale {ApartmentId = apartmentId, UserId = userId};
+            if (firstOrDefault.IsOwner != null)
             {
-                ApartmentId = apartmentId,
-                UserId = userId,
-                IsBlocked = true,
-                BlockStartDate = System.DateTime.Now,
-                BlockEndDate = System.DateTime.Now.AddDays(10),
-                SalesType = salesId
+                isOwner = firstOrDefault.IsOwner;
+            }
+            if (isOwner == true)
+            {
+                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "HOLD");
+                if (apartmentSalesType != null)
+                    salesId = apartmentSalesType.Id;
+
                 
-            };
+                aptSale.IsBlocked = (bool) isOwner;
+                aptSale.BlockStartDate = System.DateTime.Now;
+                aptSale.BlockEndDate = System.DateTime.Now.AddDays(10);
+                aptSale.SalesType = salesId;
+
+            }
+            else
+            {
+                var apartmentSalesType = salesType.FirstOrDefault(x => x.SalesType.ToUpper() == "REQUEST FOR HOLD");
+                if (apartmentSalesType != null)
+                    salesId = apartmentSalesType.Id;
+                aptSale.SalesType = salesId;
+            }
+            
+            
             db.ApartmetSales.Add(aptSale);
             db.SaveChanges();
             var apartment = db.Apartments.FirstOrDefault(x => x.Id == apartmentId);
@@ -68,22 +83,31 @@ namespace JewelOfIndiaBuilder.Controllers
         //[System.Web.Http.AcceptVerbs("GET", "POST")]
         //[System.Web.Http.HttpGet]
 
-        public string GetApartmetSalesForDelete(int id, int appId)
+        public string GetApartmetSalesForDelete(int id, int appId,string confirm)
         {
             ApartmetSale aptSale = new ApartmetSale();
             aptSale = db.ApartmetSales.FirstOrDefault(x => x.ApartmentId == appId);
             var appUser = db.Users.FirstOrDefault(user => user.Id == id);
             if (appUser != null && (aptSale != null && (aptSale.UserId == id || appUser.IsOwner == true)))
             {
-                db.ApartmetSales.Remove(aptSale);
-                db.SaveChanges();
+                if (confirm.ToUpper() == "REJECT")
+                {
+                    db.ApartmetSales.Remove(aptSale);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    aptSale.SalesType = 2;
+                    //db.Entry(aptSale).State=System.Data.Entity.EntityState.Modified;
+                    db.ApartmetSales.AddOrUpdate(aptSale);
+                    db.SaveChanges();
+                }
                 return "success";
             }
-            else
-            {
-                return "error";
-            }
+            return "failed";
         }
+            
+        
         //public string GetApartmetSalesForDelete(int id, int appId)
         //{
         //    ApartmetSale aptSale = new ApartmetSale();
