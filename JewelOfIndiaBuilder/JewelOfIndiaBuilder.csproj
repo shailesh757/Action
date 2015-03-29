@@ -257,6 +257,9 @@
     <Compile Include="Models\sp_GetApartmentSalesByUser_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetApartmentSalesDetailBySalesType_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetApartmentSalesDetail_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>

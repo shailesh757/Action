@@ -11,17 +11,17 @@ namespace JewelOfIndiaBuilder.Models
 {
     using System;
     
-    public partial class sp_GetApartmentForApproval_Result
+    public partial class sp_GetApartmentSalesDetailBySalesType_Result
     {
+        public long ApartmentID { get; set; }
         public string PropertyDesc { get; set; }
         public string TowerDesc { get; set; }
         public string ApartmentDesc { get; set; }
         public Nullable<int> BedRoom { get; set; }
         public Nullable<short> FloorLevel { get; set; }
         public string Area { get; set; }
+        public string StartDate { get; set; }
+        public Nullable<int> DaysLeftForLockToExpire { get; set; }
         public string UserName { get; set; }
-        public Nullable<short> SalesType { get; set; }
-        public long ApartmentID { get; set; }
-        public string SalesTypeName { get; set; }
     }
 }

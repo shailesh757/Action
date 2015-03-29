@@ -144,9 +144,9 @@ namespace JewelOfIndiaBuilder.Controllers
             return apartments;
         }
 
-        public List<sp_GetApartmentSalesDetail_Result> GetApartmentSalesByUserType(long userId, string salesType)
+        public List<sp_GetApartmentSalesDetailBySalesType_Result> GetApartmentSalesByUserType(long userId, string salesType)
         {
-            var apartments = db.Database.SqlQuery<sp_GetApartmentSalesDetail_Result>("exec sp_GetApartmentSalesDetail @UserId={0},@SalesType={1}", userId, salesType).ToList<sp_GetApartmentSalesDetail_Result>();
+            var apartments = db.Database.SqlQuery<sp_GetApartmentSalesDetailBySalesType_Result>("exec sp_GetApartmentSalesDetailBySalesType @UserId={0},@SalesType={1}", userId, salesType).ToList<sp_GetApartmentSalesDetailBySalesType_Result>();
             return apartments;
         }
 
