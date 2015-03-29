@@ -42,7 +42,8 @@ namespace JewelOfIndiaBuilder.Models
         public DbSet<ApartmentSalesType> ApartmentSalesTypes { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<MessageNotification> MessageNotifications { get; set; }
     
-        
+       
     }
 }

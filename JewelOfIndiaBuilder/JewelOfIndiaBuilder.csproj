@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationAdminController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MessageNotificationsController.cs" />
     <Compile Include="Controllers\PropertyAdminController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\PropertyTypeAdminController.cs" />
@@ -232,6 +233,9 @@
     <Compile Include="Models\Message.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessageNotification.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Property.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
@@ -263,6 +267,9 @@
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetApartmentWithStatus_Result.cs">
+      <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetMessageBasedOnUser_Result.cs">
       <DependentUpon>JewelOfIndiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetProperties_Result.cs">

@@ -35,6 +35,7 @@
         <AssociationConnector Association="JewelOfIndiaModel.FK_ApartmetSales_Users" />
         <EntityTypeShape EntityType="JewelOfIndiaModel.Message" Width="1.5" PointX="6.5" PointY="24.125" />
         <AssociationConnector Association="JewelOfIndiaModel.UserMessages" />
+        <EntityTypeShape EntityType="JewelOfIndiaModel.MessageNotification" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

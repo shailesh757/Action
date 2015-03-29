@@ -96,6 +96,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Message" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="MessageNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageText" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="Properties">
           <Key>
             <PropertyRef Name="Id" />
@@ -417,6 +425,9 @@ warning 6002: The table/view 'JewelOfIndia.dbo.UserMessages' does not have a pri
           <Parameter Name="SalesType" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_GetApartmentWithStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetMessageBasedOnUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="sp_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_GetPropertyFeature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PropertyId" Type="bigint" Mode="In" />
@@ -456,6 +467,7 @@ warning 6002: The table/view 'JewelOfIndia.dbo.UserMessages' does not have a pri
           <EntitySet Name="FeatureTypes" EntityType="Self.FeatureTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageNotification" EntityType="Self.MessageNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyFeature" EntityType="Self.PropertyFeature" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyTypes" EntityType="Self.PropertyTypes" Schema="dbo" store:Type="Tables" />
@@ -677,6 +689,10 @@ FROM [dbo].[UserMessages] AS [UserMessages]</DefiningQuery>
           </AssociationSet>
           <FunctionImport Name="sp_GetAllUser" ReturnType="Collection(JewelOfIndiaModel.sp_GetAllUser_Result)" />
           <FunctionImport Name="sp_GetApartmentForApproval" ReturnType="Collection(JewelOfIndiaModel.sp_GetApartmentForApproval_Result)" />
+          <EntitySet Name="MessageNotifications" EntityType="JewelOfIndiaModel.MessageNotification" />
+          <FunctionImport Name="sp_GetMessageBasedOnUser" ReturnType="Collection(JewelOfIndiaModel.sp_GetMessageBasedOnUser_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Apartment">
           <Key>
@@ -1139,6 +1155,18 @@ FROM [dbo].[UserMessages] AS [UserMessages]</DefiningQuery>
           <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
           <Property Type="Int16" Name="SalesType" Nullable="true" />
         </ComplexType>
+        <EntityType Name="MessageNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageText" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="sp_GetMessageBasedOnUser_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MessageText" Nullable="true" MaxLength="1000" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1508,6 +1536,23 @@ FROM [dbo].[UserMessages] AS [UserMessages]</DefiningQuery>
                 <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="MessageNotifications">
+            <EntityTypeMapping TypeName="JewelOfIndiaModel.MessageNotification">
+              <MappingFragment StoreEntitySet="MessageNotification">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetMessageBasedOnUser" FunctionName="JewelOfIndiaModel.Store.sp_GetMessageBasedOnUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JewelOfIndiaModel.sp_GetMessageBasedOnUser_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
