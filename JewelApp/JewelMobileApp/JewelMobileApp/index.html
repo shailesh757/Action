@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jewel Of India</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+</head>
+<body>
+    <header role="banner" id="top" class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle collapsed" id="navbarbutton">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand glyphicon glyphicon-home">JEWEL<span> of india</span></a>
+            </div>
+            <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li id="profLink">
+                        <a class="glyphicon glyphicon-th-large">My Profile</a>
+                    </li>
+                    <li id="LockPropLink">
+                        <a class="glyphicon glyphicon-th-large">Locked Properties</a>
+                    </li>
+                    <li id="propLink">
+                        <a class="glyphicon glyphicon-th-large">All Properties</a>
+                    </li>
+            </nav>
+        </div>
+    </header>
+    <div class="container loginCnt">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pr-wrap">
+                    <div class="pass-reset">
+                        <label>
+                            Enter the email you signed up with</label>
+                        <input type="email" placeholder="Email" />
+                        <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                    </div>
+                </div>
+                <div class="wrap">
+                    <p class="form-title">Owner Login</p>
+                    <form class="login">
+                        <input type="text" id="userName" placeholder="Username" />
+                        <input type="password" id="pass" placeholder="Password" />
+                        <button type="button" id="signIn" class="btn btn-success btn-sm">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="UserProfile">
+        <div class="container">
+            <h3 align="center">User Profile</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt bedRoom">
+                        <div class="imgCntW">
+                            User Name
+                        </div>
+                        <div class="itemText">
+                            <label for="uname"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Bathroom">
+                        <div class="imgCntW">
+                            Email ID
+                        </div>
+                        <div class="itemText">
+                            <label for="email"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCntW">
+                            Mobile Number
+                        </div>
+                        <div class="itemText">
+                            <label for="mobile"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCntW">
+                            Date Of Birth
+                        </div>
+                        <div class="itemText">
+                            <label for="dob"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <button class="btn btn-md btn-info" id="btnLockProp" itemid="">View Locked Properties</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <button class="btn btn-md btn-info" id="btnViewAll" itemid="">View All Properties</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul id="employeeList" data-role="listview" data-filter="true"></ul>
+    </div>
+    <div class="towcontent">
+        <ul id="actionList" data-role="listview" data-inset="true"></ul>
+    </div>
+    <div class="aptcontent">
+        <ul id="apartmentlist" data-role="listview" data-inset="true"></ul>
+    </div>
+    <div class="lockpropcontent">
+        <ul id="lockproplist" data-role="listview" data-inset="true"></ul>
+    </div>
+    <div class="bookingCnt">
+        <div class="container-fluid">
+            <div id="carousel-prop" class="carousel slide" data-slide="carousel">
+                <div class="carousel-inner" role="listbox">
+                </div>
+                <a class="left carousel-control" href="#carousel-prop" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-prop" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt bedRoom">
+                        <div class="imgCnt">
+                            <img src="images/feature.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="feature"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Bathroom">
+                        <div class="imgCnt">
+                            <img src="images/desc.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="desc"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/location.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="location"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/type.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="type"></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <button class="btn btn-md btn-info" id="viewTower" itemid="">View Towers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="TowerDetail">
+        <div class="container-fluid">
+            <div id="carousel-tower" class="carousel slide" data-slide="carousel">
+                <div class="carousel-inner" role="listbox">
+                </div>
+                <a class="left carousel-control" href="#carousel-tower" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-tower" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt bedRoom">
+                        <div class="imgCnt">
+                            <img src="images/feature.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="feature"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Bathroom">
+                        <div class="imgCnt">
+                            <img src="images/desc.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="desc"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/location.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="location"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <button class="btn btn-md btn-info" id="viewApts" itemid="">View Apartments</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AptDetail">
+        <div class="container-fluid">
+            <div id="carousel-apt" class="carousel slide" data-slide="carousel">
+                <div class="carousel-inner" role="listbox">
+                </div>
+                <a class="left carousel-control" href="#carousel-apt" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-apt" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt bedRoom">
+                        <div class="imgCnt">
+                            <img src="images/bedroom.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="bedroom"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Bathroom">
+                        <div class="imgCnt">
+                            <img src="images/bathroom.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="bathroom"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/carParking.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="garage"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/floorlevel.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="floorlevel"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/desc.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="desc"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="itemCnt Carspaces">
+                        <div class="imgCnt">
+                            <img src="images/location.png">
+                        </div>
+                        <div class="itemText">
+                            <label for="location"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <button class="btn btn-md btn-info" id="LockProp" itemid="">Lock Property</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><span class="goldColor">&copy; </span>Copyright 2014, All right reserved with<span class="goldColor">Jewel of India</span></p>
+        </div>
+    </footer>
+    <script src="js/api.js"></script>
+    <script src="js/jquery.1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/functional.js"></script>
+    <script>
+        hideAll();
+        $(".loginCnt").show();
+        /*$(document).ready(function(){
+			dataLoad();
+			$('.carousel').carousel({
+			  interval: 2000
+			});
+			$(".itemCnt").click(function(){
+				$(".bookingCnt").fadeOut(300, function(){
+					$(".displayHotels").show();
+					$(".backBtn").click(function(){
+						$(".displayHotels").fadeOut(300,function(){
+							$(".bookingCnt").fadeIn();
+						});
+					});
+				});
+			});
+		});*/
+    </script>
+</body>
+</html>
